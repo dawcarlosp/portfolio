@@ -1,0 +1,56 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+}
+const { title = 'Carlos Pereira', subtitle = 'Full Stack Developer Jr.' } = Astro.props;
+---
+
+<section id="hero" class="relative min-h-screen flex items-center justify-center px-4 pt-16">
+  <div class="text-center max-w-4xl mx-auto">
+    <div class="mb-8 inline-block relative animate-scale-in">
+      <div class="w-36 h-36 md:w-44 md:h-44 rounded-full glass-strong flex items-center justify-center mx-auto animate-float border-2 border-aurora/30 animate-border-glow">
+        <span class="text-5xl md:text-6xl font-heading font-bold text-gradient">CP</span>
+      </div>
+      <div class="absolute -bottom-2 -right-2 w-12 h-12 glass rounded-full flex items-center justify-center">
+        <span class="text-xl">&#x1F30D;</span>
+      </div>
+    </div>
+
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-4 stagger-1 animate-fade-in-up">
+      <span class="text-gradient">{title}</span>
+    </h1>
+
+    <div class="h-12 md:h-14 flex items-center justify-center mb-6 stagger-2 animate-fade-in-up">
+      <p class="text-xl md:text-2xl lg:text-3xl text-text-muted font-light">
+        <span class="inline-block border-r-2 border-aurora pr-1 animate-blink" style="animation: blink 0.75s step-end infinite;">
+          {subtitle}
+        </span>
+      </p>
+    </div>
+
+    <p class="text-base md:text-lg text-text-muted/80 max-w-2xl mx-auto mb-10 stagger-3 animate-fade-in-up">
+      Apasionado por crear soluciones reales con tecnolog&iacute;as modernas.
+      <br class="hidden sm:block" />
+      Siempre aprendiendo, siempre construyendo.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4 stagger-4 animate-fade-in-up">
+      <a href="#about" class="px-8 py-3 rounded-full glass border border-aurora/30 text-aurora font-medium hover:bg-aurora/10 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,255,204,0.2)]">
+        Con&oacute;ceme
+      </a>
+      <a href="#contact" class="px-8 py-3 rounded-full bg-gradient-to-r from-aurora/20 to-violet/20 border border-white/10 text-text-primary font-medium hover:from-aurora/30 hover:to-violet/30 transition-all duration-300 hover:shadow-[0_0_30px_rgba(155,81,224,0.2)]">
+        Contacto
+      </a>
+      <a href="#skills" class="px-8 py-3 rounded-full glass border border-white/10 text-text-muted font-medium hover:bg-white/5 transition-all duration-300">
+        Stack
+      </a>
+    </div>
+
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-aurora/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
+    </div>
+  </div>
+</section>

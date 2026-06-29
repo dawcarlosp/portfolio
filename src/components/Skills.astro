@@ -1,0 +1,101 @@
+---
+const skillCategories = [
+  {
+    id: 'backend',
+    title: 'Backend',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>',
+    color: 'text-aurora',
+    bgColor: 'bg-aurora/10',
+    hoverBg: 'hover:bg-aurora/15',
+    items: [
+      { name: 'Java', icon: 'https://skillicons.dev/icons?i=java' },
+      { name: 'Spring Boot', icon: 'https://skillicons.dev/icons?i=spring' },
+      { name: 'PHP', icon: 'https://skillicons.dev/icons?i=php' },
+      { name: 'Laravel', icon: 'https://skillicons.dev/icons?i=laravel' },
+    ]
+  },
+  {
+    id: 'frontend',
+    title: 'Frontend',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>',
+    color: 'text-blue-accent',
+    bgColor: 'bg-blue-accent/10',
+    hoverBg: 'hover:bg-blue-accent/15',
+    items: [
+      { name: 'HTML5', icon: 'https://skillicons.dev/icons?i=html' },
+      { name: 'CSS3', icon: 'https://raw.githubusercontent.com/dawcarlosp/dawcarlosp/main/assets-perfil/css_new_logo.png' },
+      { name: 'JavaScript', icon: 'https://skillicons.dev/icons?i=js' },
+      { name: 'React', icon: 'https://skillicons.dev/icons?i=react' },
+      { name: 'Tailwind', icon: 'https://skillicons.dev/icons?i=tailwind' },
+      { name: 'Bootstrap', icon: 'https://skillicons.dev/icons?i=bootstrap' },
+      { name: 'Vite', icon: 'https://skillicons.dev/icons?i=vite' },
+    ]
+  },
+  {
+    id: 'database',
+    title: 'Bases de Datos',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>',
+    color: 'text-violet',
+    bgColor: 'bg-violet/10',
+    hoverBg: 'hover:bg-violet/15',
+    items: [
+      { name: 'MySQL', icon: 'https://skillicons.dev/icons?i=mysql' },
+      { name: 'MongoDB', icon: 'https://skillicons.dev/icons?i=mongodb' },
+    ]
+  },
+  {
+    id: 'devops',
+    title: 'Cloud & DevOps',
+    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>',
+    color: 'text-blue-accent',
+    bgColor: 'bg-blue-accent/10',
+    hoverBg: 'hover:bg-blue-accent/15',
+    items: [
+      { name: 'Docker', icon: 'https://skillicons.dev/icons?i=docker' },
+      { name: 'GCP', icon: 'https://skillicons.dev/icons?i=gcp' },
+      { name: 'Linux', icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg' },
+      { name: 'Linux Mint', icon: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Linux_Mint_logo_without_wordmark.svg' },
+      { name: 'Git', icon: 'https://skillicons.dev/icons?i=git' },
+    ]
+  },
+];
+---
+
+<section id="skills" class="relative py-24 px-4">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-4 stagger-1 animate-fade-in-up">
+      <span class="text-gradient">Stack tecnol&oacute;gico</span>
+    </h2>
+    <p class="text-text-muted text-center mb-16 max-w-xl mx-auto stagger-2 animate-fade-in-up">
+      Tecnolog&iacute;as con las que trabajo d&iacute;a a d&iacute;a.
+    </p>
+
+    <div class="space-y-12">
+      {
+        skillCategories.map((category, catIdx) => (
+          <div class={`stagger-${catIdx + 1} animate-fade-in-up`}>
+            <div class="flex items-center gap-3 mb-6">
+              <div class={`w-10 h-10 rounded-xl ${category.bgColor} flex items-center justify-center`} set:html={category.icon}>
+              </div>
+              <h3 class={`text-xl font-heading font-semibold ${category.color}`}>{category.title}</h3>
+              <div class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent ml-2"></div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {
+                category.items.map((skill) => (
+                  <div class={`group glass rounded-xl p-4 flex flex-col items-center justify-center gap-3 transition-all duration-300 ${category.hoverBg} hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,204,0.08)] cursor-default`}>
+                    <div class="w-12 h-12 flex items-center justify-center">
+                      <img src={skill.icon} alt={skill.name} class="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-110" loading="lazy" />
+                    </div>
+                    <span class="text-xs text-text-muted group-hover:text-text-primary transition-colors duration-300 font-medium">{skill.name}</span>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

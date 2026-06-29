@@ -1,0 +1,33 @@
+---
+const tools = [
+  { name: 'VS Code', icon: 'https://skillicons.dev/icons?i=vscode' },
+  { name: 'Postman', icon: 'https://skillicons.dev/icons?i=postman' },
+  { name: 'MySQL Workbench', icon: 'https://skillicons.dev/icons?i=mysql' },
+  { name: 'IntelliJ IDEA', icon: 'https://raw.githubusercontent.com/dawcarlosp/dawcarlosp/main/assets-perfil/intell-ij.png' },
+  { name: 'NetBeans', icon: 'https://raw.githubusercontent.com/dawcarlosp/dawcarlosp/main/assets-perfil/netbeans.png' },
+];
+---
+
+<section id="tools" class="relative py-24 px-4">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-4 stagger-1 animate-fade-in-up">
+      <span class="text-gradient">Herramientas favoritas</span>
+    </h2>
+    <p class="text-text-muted text-center mb-16 max-w-xl mx-auto stagger-2 animate-fade-in-up">
+      Mi arsenal diario para dar vida a los proyectos.
+    </p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 stagger-3 animate-fade-in-up">
+      {
+        tools.map((tool) => (
+          <div class="group glass rounded-2xl p-6 flex flex-col items-center justify-center gap-4 transition-all duration-500 hover:bg-card-hover hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,204,0.1)] cursor-default">
+            <div class="w-14 h-14 flex items-center justify-center">
+              <img src={tool.icon} alt={tool.name} class="w-12 h-12 object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-3" loading="lazy" />
+            </div>
+            <span class="text-sm text-text-muted group-hover:text-aurora transition-colors duration-300 font-medium">{tool.name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
