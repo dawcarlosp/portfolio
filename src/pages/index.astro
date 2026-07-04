@@ -2,10 +2,11 @@
 import Layout from '../layouts/Layout.astro';
 import AuroraBackground from '../components/AuroraBackground.astro';
 import StarsBackground from '../components/StarsBackground.astro';
+import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import Skills from '../components/Skills.astro';
-import Tools from '../components/Tools.astro';
+import Projects from '../components/Projects.astro';
 import GitHubStats from '../components/GitHubStats.astro';
 import Contact from '../components/Contact.astro';
 ---
@@ -14,29 +15,13 @@ import Contact from '../components/Contact.astro';
   <AuroraBackground />
   <StarsBackground />
 
-  <nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
-    <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-      <a href="#" class="text-aurora font-heading font-bold text-lg tracking-tight">
-        CP<span class="text-text-muted">.</span>
-      </a>
-      <div class="hidden sm:flex items-center gap-6">
-        <a href="#about" class="text-sm text-text-muted hover:text-aurora transition-colors">Sobre m&iacute;</a>
-        <a href="#skills" class="text-sm text-text-muted hover:text-aurora transition-colors">Stack</a>
-        <a href="#tools" class="text-sm text-text-muted hover:text-aurora transition-colors">Herramientas</a>
-        <a href="#stats" class="text-sm text-text-muted hover:text-aurora transition-colors">Estad&iacute;sticas</a>
-        <a href="#contact" class="text-sm text-text-muted hover:text-aurora transition-colors">Contacto</a>
-      </div>
-      <a href="mailto:dawcarlospereira@gmail.com" class="px-4 py-2 rounded-full text-xs font-medium glass border border-aurora/20 text-aurora hover:bg-aurora/10 transition-all">
-        Email
-      </a>
-    </div>
-  </nav>
+  <Nav />
 
   <main class="relative">
     <Hero />
     <About />
     <Skills />
-    <Tools />
+    <Projects />
     <GitHubStats />
     <Contact />
   </main>

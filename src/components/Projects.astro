@@ -1,0 +1,68 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import ProjectCard from './ProjectCard.astro';
+---
+
+<section id="projects" class="relative py-24 px-4">
+  <div class="max-w-5xl mx-auto">
+    <SectionHeading
+      title="Proyectos"
+      subtitle="De proyectos reales a entornos de experimentación con IA."
+    />
+
+    <div class="grid md:grid-cols-2 gap-6 stagger-3 animate-fade-in-up">
+      <ProjectCard
+        featured
+        accent="aurora"
+        badge="TFG"
+        title="LocuVentas"
+        description="Sistema POS (punto de venta) full-stack. Backend en Spring Boot con autenticación JWT. Frontend en React + Vite + TypeScript con arquitectura feature-based y monorepo. Migración completa JS → TypeScript con convenciones estrictas."
+        tags={[
+          { label: 'Spring Boot', color: 'bg-green-500/15 text-green-300' },
+          { label: 'React', color: 'bg-sky-500/15 text-sky-300' },
+          { label: 'TypeScript', color: 'bg-blue-500/15 text-blue-300' },
+          { label: 'MySQL', color: 'bg-orange-500/15 text-orange-300' },
+          { label: 'JWT', color: 'bg-red-500/15 text-red-300' },
+        ]}
+        image={undefined}
+        imageAlt="Captura de LocuVentas"
+        links={[
+          { label: 'Código', url: 'https://github.com/dawcarlosp/locuventas' },
+          { label: 'Ver proyecto', url: '#' },
+        ]}
+      />
+
+      <ProjectCard
+        accent="violet"
+        badge="Sandbox"
+        title="locuventas-sandbox"
+        description="Entorno de experimentación con IA derivado del TFG. Dockerizado (backend + frontend + MySQL). Muestra el flujo de desarrollo asistido por agentes de IA (OpenCode) y evolución del proyecto original."
+        tags={[
+          { label: 'TypeScript ~55%', color: 'bg-blue-500/15 text-blue-300' },
+          { label: 'Java ~40%', color: 'bg-orange-500/15 text-orange-300' },
+          { label: 'Docker', color: 'bg-sky-500/15 text-sky-300' },
+          { label: 'OpenCode', color: 'bg-purple-500/15 text-purple-300' },
+        ]}
+        image={undefined}
+        imageAlt="Captura de locuventas-sandbox"
+        links={[
+          { label: 'Código', url: 'https://github.com/dawcarlosp/locuventas-sandbox' },
+        ]}
+      />
+    </div>
+
+    <div class="mt-10 text-center stagger-4 animate-fade-in-up">
+      <a
+        href="https://github.com/dawcarlosp?tab=repositories"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-full glass border border-white/10 text-text-muted hover:text-text-primary hover:bg-white/5 transition-all duration-300 text-sm"
+      >
+        Ver todos en GitHub
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

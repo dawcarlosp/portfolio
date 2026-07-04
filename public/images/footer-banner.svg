@@ -1,0 +1,151 @@
+<svg viewBox="0 0 1200 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0B132B" />
+      <stop offset="100%" stop-color="#0a1a2f" />
+    </linearGradient>
+    <radialGradient id="auroraGradient" cx="50%" cy="100%" r="80%">
+      <stop offset="0%" stop-color="#00ffcc" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#00ffcc" stop-opacity="0" />
+    </radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="25" /></filter>
+    <filter id="neon" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#9B51E0"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#FF7F50"/>
+    </filter>
+    <radialGradient id="moonGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fcd5ce" />
+      <stop offset="100%" stop-color="#f28482" />
+    </radialGradient>
+    <linearGradient id="trailGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#skyGradient)" />
+
+  <g>
+    <animate attributeName="opacity" values="0;1;0" dur="3s" begin="0s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" from="100 -100" to="1300 1100"
+      dur="3s" begin="0s" repeatCount="indefinite" />
+    <g transform="rotate(45)">
+      <line x1="-60" y1="0" x2="0" y2="0" stroke="url(#trailGradient)" stroke-width="2" stroke-linecap="round" />
+      <circle cx="0" cy="0" r="3" fill="white">
+        <animate attributeName="r" values="3;4.5;3" dur="0.4s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+
+  <g>
+    <animate attributeName="opacity" values="0;1;0" dur="3.5s" begin="1s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" from="1100 -100" to="-300 1300"
+      dur="3.5s" begin="1s" repeatCount="indefinite" />
+    <g transform="rotate(135)">
+      <line x1="-50" y1="0" x2="0" y2="0" stroke="url(#trailGradient)" stroke-width="1.5" stroke-linecap="round" />
+      <circle cx="0" cy="0" r="2.5" fill="white">
+        <animate attributeName="r" values="2.5;3.5;2.5" dur="0.4s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+
+  <circle cx="225" cy="10" r="1.0" fill="#ffe0e0" />
+  <circle cx="658" cy="18" r="1.3" fill="#f0f8ff" />
+  <circle cx="660" cy="28" r="1.5" fill="#f0f8ff" />
+  <circle cx="497" cy="38" r="1.1" fill="#e0e0ff" />
+  <circle cx="1068" cy="86" r="1.2" fill="#fffacd" />
+  <circle cx="741" cy="27" r="1.5" fill="#f0f8ff" />
+  <circle cx="623" cy="24" r="0.8" fill="#f0f8ff" />
+  <circle cx="559" cy="64" r="1.4" fill="#ffe0e0" />
+  <circle cx="338" cy="64" r="1.1" fill="#f0f8ff" />
+  <circle cx="894" cy="9" r="1.6" fill="#ffffff" />
+  <circle cx="13" cy="74" r="1.3" fill="#fffacd" />
+  <circle cx="388" cy="56" r="1.1" fill="#e0e0ff" />
+  <circle cx="804" cy="90" r="1.2" fill="#fffacd" />
+  <circle cx="154" cy="8" r="1.4" fill="#f0f8ff" />
+  <circle cx="936" cy="18" r="1.3" fill="#ffe0e0" />
+  <circle cx="973" cy="72" r="1.2" fill="#ffffff" />
+
+  <circle cx="1080" cy="50" r="25" fill="url(#moonGradient)" />
+
+  <g filter="url(#blur)">
+    <path fill="url(#auroraGradient)" opacity="0.7">
+      <animateTransform attributeName="transform" type="translate"
+        values="-100 0; 0 0; 100 0; 0 0; -100 0" dur="12s" repeatCount="indefinite" />
+      <animate attributeName="d" dur="10s" repeatCount="indefinite"
+        values="
+          M0,250 Q300,60 600,200 T1200,100 L1200,250 L0,250 Z;
+          M0,250 Q300,90 600,150 T1200,120 L1200,250 L0,250 Z;
+          M0,250 Q300,50 600,180 T1200,90 L1200,250 L0,250 Z;
+          M0,250 Q300,60 600,200 T1200,100 L1200,250 L0,250 Z
+        " />
+    </path>
+  </g>
+
+  <g filter="url(#blur)">
+    <path fill="url(#auroraGradient)" opacity="0.5">
+      <animateTransform attributeName="transform" type="translate"
+        values="150 0; 0 0; -150 0; 0 0; 150 0" dur="16s" repeatCount="indefinite" />
+      <animate attributeName="d" dur="12s" repeatCount="indefinite"
+        values="
+          M0,250 Q250,100 500,150 Q850,80 1200,130 L1200,250 L0,250 Z;
+          M0,250 Q250,130 500,120 Q850,140 1200,160 L1200,250 L0,250 Z;
+          M0,250 Q250,70 500,170 Q850,100 1200,140 L1200,250 L0,250 Z;
+          M0,250 Q250,100 500,150 Q850,80 1200,130 L1200,250 L0,250 Z
+        " />
+    </path>
+  </g>
+
+  <text x="100" y="80" font-family="monospace" font-size="30" fill="white" filter="url(#neon)">
+    <tspan id="l1" visibility="hidden">👋</tspan>
+    <tspan id="l2" visibility="hidden"> </tspan>
+    <tspan id="l3" visibility="hidden">¡</tspan>
+    <tspan id="l4" visibility="hidden" dx="-15">H</tspan>
+    <tspan id="l5" visibility="hidden" dx="-15">o</tspan>
+    <tspan id="l6" visibility="hidden" dx="-15">l</tspan>
+    <tspan id="l7" visibility="hidden" dx="-15">a</tspan>
+    <tspan id="l8" visibility="hidden" dx="-15">!</tspan>
+    <tspan id="l9" visibility="hidden" dx="-15">,</tspan>
+    <tspan id="l10" visibility="hidden"> </tspan>
+    <tspan id="l11" visibility="hidden">S</tspan>
+    <tspan id="l12" visibility="hidden" dx="-15">o</tspan>
+    <tspan id="l13" visibility="hidden" dx="-15">y</tspan>
+    <tspan id="l14" visibility="hidden" dx="-15"> </tspan>
+    <tspan id="l15" visibility="hidden">C</tspan>
+    <tspan id="l16" visibility="hidden" dx="-15">a</tspan>
+    <tspan id="l17" visibility="hidden" dx="-15">r</tspan>
+    <tspan id="l18" visibility="hidden" dx="-15">l</tspan>
+    <tspan id="l19" visibility="hidden" dx="-15">o</tspan>
+    <tspan id="l20" visibility="hidden" dx="-15">s</tspan>
+    <tspan id="l21" visibility="hidden"> </tspan>
+    <tspan id="l22" visibility="hidden">P</tspan>
+    <tspan id="l23" visibility="hidden" dx="-15">.</tspan>
+    <tspan id="cursor" visibility="hidden">|</tspan>
+
+    <animate attributeName="visibility" values="visible" begin="0s" dur="0.1s" fill="freeze" href="#l1" />
+    <animate attributeName="visibility" values="visible" begin="0.15s" dur="0.1s" fill="freeze" href="#l2" />
+    <animate attributeName="visibility" values="visible" begin="0.3s" dur="0.1s" fill="freeze" href="#l3" />
+    <animate attributeName="visibility" values="visible" begin="0.45s" dur="0.1s" fill="freeze" href="#l4" />
+    <animate attributeName="visibility" values="visible" begin="0.6s" dur="0.1s" fill="freeze" href="#l5" />
+    <animate attributeName="visibility" values="visible" begin="0.75s" dur="0.1s" fill="freeze" href="#l6" />
+    <animate attributeName="visibility" values="visible" begin="0.9s" dur="0.1s" fill="freeze" href="#l7" />
+    <animate attributeName="visibility" values="visible" begin="1.05s" dur="0.1s" fill="freeze" href="#l8" />
+    <animate attributeName="visibility" values="visible" begin="1.2s" dur="0.1s" fill="freeze" href="#l9" />
+    <animate attributeName="visibility" values="visible" begin="1.35s" dur="0.1s" fill="freeze" href="#l10" />
+    <animate attributeName="visibility" values="visible" begin="1.5s" dur="0.1s" fill="freeze" href="#l11" />
+    <animate attributeName="visibility" values="visible" begin="1.65s" dur="0.1s" fill="freeze" href="#l12" />
+    <animate attributeName="visibility" values="visible" begin="1.8s" dur="0.1s" fill="freeze" href="#l13" />
+    <animate attributeName="visibility" values="visible" begin="1.95s" dur="0.1s" fill="freeze" href="#l14" />
+    <animate attributeName="visibility" values="visible" begin="2.1s" dur="0.1s" fill="freeze" href="#l15" />
+    <animate attributeName="visibility" values="visible" begin="2.25s" dur="0.1s" fill="freeze" href="#l16" />
+    <animate attributeName="visibility" values="visible" begin="2.4s" dur="0.1s" fill="freeze" href="#l17" />
+    <animate attributeName="visibility" values="visible" begin="2.55s" dur="0.1s" fill="freeze" href="#l18" />
+    <animate attributeName="visibility" values="visible" begin="2.7s" dur="0.1s" fill="freeze" href="#l19" />
+    <animate attributeName="visibility" values="visible" begin="2.85s" dur="0.1s" fill="freeze" href="#l20" />
+    <animate attributeName="visibility" values="visible" begin="3.0s" dur="0.1s" fill="freeze" href="#l21" />
+    <animate attributeName="visibility" values="visible" begin="3.15s" dur="0.1s" fill="freeze" href="#l22" />
+    <animate attributeName="visibility" values="visible" begin="3.3s" dur="0.1s" fill="freeze" href="#l23" />
+    <animate attributeName="visibility" values="visible;hidden;visible" begin="3.6s" dur="1s" repeatCount="indefinite" href="#cursor" />
+  </text>
+</svg>

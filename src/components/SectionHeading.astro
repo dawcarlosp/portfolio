@@ -1,0 +1,21 @@
+---
+export interface Props {
+  title: string;
+  subtitle?: string;
+  as?: 'h1' | 'h2' | 'h3';
+}
+
+const { title, subtitle, as = 'h2' } = Astro.props;
+const Tag = as;
+---
+
+<Tag class="text-3xl md:text-4xl font-heading font-bold text-center mb-4 stagger-1 animate-fade-in-up">
+  <span class="text-gradient">{title}</span>
+</Tag>
+{
+  subtitle && (
+    <p class="text-text-muted text-center mb-16 max-w-xl mx-auto stagger-2 animate-fade-in-up">
+      {subtitle}
+    </p>
+  )
+}
