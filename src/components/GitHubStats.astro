@@ -99,7 +99,7 @@
           fetchWithTimeout(r.languages_url).then((res) => (res.ok ? res.json() : {}))
         );
 
-      const langResults = await Promise.all(langPromises);
+      const langResults = await Promise.all(langPromises) as Record<string, number>[];
       const totals: Record<string, number> = {};
       langResults.forEach((langs) => {
         Object.entries(langs).forEach(([lang, bytes]) => {
