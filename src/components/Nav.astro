@@ -1,0 +1,31 @@
+---
+const links = [
+  { href: '#about', label: 'Sobre mí' },
+  { href: '#skills', label: 'Stack' },
+  { href: '#projects', label: 'Proyectos' },
+  { href: '#contact', label: 'Contacto' },
+];
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
+  <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+    <a href="#" class="text-aurora font-heading font-bold text-lg tracking-tight">
+      CP<span class="text-text-muted">.</span>
+    </a>
+    <div class="hidden sm:flex items-center gap-6">
+      {
+        links.map((link) => (
+          <a href={link.href} class="text-sm text-text-muted hover:text-aurora transition-colors">
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+    <a
+      href="mailto:dawcarlospereira@gmail.com"
+      class="px-4 py-2 rounded-full text-xs font-medium glass border border-aurora/20 text-aurora hover:bg-aurora/10 transition-all"
+    >
+      Email
+    </a>
+  </div>
+</nav>

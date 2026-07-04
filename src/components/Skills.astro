@@ -1,100 +1,160 @@
 ---
-const skillCategories = [
+import SectionHeading from './SectionHeading.astro';
+
+interface Skill {
+  name: string;
+  icon?: string;
+}
+
+interface Category {
+  id: string;
+  title: string;
+  level: 'core' | 'competent' | 'exploration' | 'infra';
+  items: Skill[];
+}
+
+const categories: Category[] = [
   {
-    id: 'backend',
-    title: 'Backend',
-    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>',
-    color: 'text-aurora',
-    bgColor: 'bg-aurora/10',
-    hoverBg: 'hover:bg-aurora/15',
+    id: 'core',
+    title: 'Núcleo',
+    level: 'core',
     items: [
       { name: 'Java', icon: 'https://skillicons.dev/icons?i=java' },
       { name: 'Spring Boot', icon: 'https://skillicons.dev/icons?i=spring' },
-      { name: 'PHP', icon: 'https://skillicons.dev/icons?i=php' },
-      { name: 'Laravel', icon: 'https://skillicons.dev/icons?i=laravel' },
-    ]
-  },
-  {
-    id: 'frontend',
-    title: 'Frontend',
-    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>',
-    color: 'text-blue-accent',
-    bgColor: 'bg-blue-accent/10',
-    hoverBg: 'hover:bg-blue-accent/15',
-    items: [
-      { name: 'HTML5', icon: 'https://skillicons.dev/icons?i=html' },
-      { name: 'CSS3', icon: 'https://raw.githubusercontent.com/dawcarlosp/dawcarlosp/main/assets-perfil/css_new_logo.png' },
-      { name: 'JavaScript', icon: 'https://skillicons.dev/icons?i=js' },
       { name: 'React', icon: 'https://skillicons.dev/icons?i=react' },
-      { name: 'Tailwind', icon: 'https://skillicons.dev/icons?i=tailwind' },
-      { name: 'Bootstrap', icon: 'https://skillicons.dev/icons?i=bootstrap' },
+      { name: 'TypeScript', icon: 'https://skillicons.dev/icons?i=ts' },
       { name: 'Vite', icon: 'https://skillicons.dev/icons?i=vite' },
-    ]
-  },
-  {
-    id: 'database',
-    title: 'Bases de Datos',
-    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>',
-    color: 'text-violet',
-    bgColor: 'bg-violet/10',
-    hoverBg: 'hover:bg-violet/15',
-    items: [
       { name: 'MySQL', icon: 'https://skillicons.dev/icons?i=mysql' },
-      { name: 'MongoDB', icon: 'https://skillicons.dev/icons?i=mongodb' },
-    ]
+      { name: 'Tailwind', icon: 'https://skillicons.dev/icons?i=tailwind' },
+      { name: 'HTML5', icon: 'https://skillicons.dev/icons?i=html' },
+    ],
   },
   {
-    id: 'devops',
-    title: 'Cloud & DevOps',
-    icon: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>',
-    color: 'text-blue-accent',
-    bgColor: 'bg-blue-accent/10',
-    hoverBg: 'hover:bg-blue-accent/15',
+    id: 'competent',
+    title: 'Competente',
+    level: 'competent',
+    items: [
+      { name: 'Angular', icon: 'https://skillicons.dev/icons?i=angular' },
+      { name: 'ASP.NET Core', icon: 'https://skillicons.dev/icons?i=dotnet' },
+      { name: 'C#', icon: 'https://skillicons.dev/icons?i=cs' },
+      { name: 'SQL Server', icon: 'https://skillicons.dev/icons?i=mysql' },
+      { name: 'JavaScript', icon: 'https://skillicons.dev/icons?i=js' },
+      { name: 'Bootstrap', icon: 'https://skillicons.dev/icons?i=bootstrap' },
+    ],
+  },
+  {
+    id: 'exploration',
+    title: 'Exploración',
+    level: 'exploration',
+    items: [
+      { name: 'Node.js', icon: 'https://skillicons.dev/icons?i=nodejs' },
+      { name: 'Laravel', icon: 'https://skillicons.dev/icons?i=laravel' },
+      { name: 'PHP', icon: 'https://skillicons.dev/icons?i=php' },
+      { name: 'React Native', icon: 'https://skillicons.dev/icons?i=react' },
+      { name: 'MongoDB', icon: 'https://skillicons.dev/icons?i=mongodb' },
+      { name: 'CSS3', icon: 'https://raw.githubusercontent.com/dawcarlosp/dawcarlosp/main/assets-perfil/css_new_logo.png' },
+    ],
+  },
+  {
+    id: 'infra',
+    title: 'Infraestructura',
+    level: 'infra',
     items: [
       { name: 'Docker', icon: 'https://skillicons.dev/icons?i=docker' },
       { name: 'GCP', icon: 'https://skillicons.dev/icons?i=gcp' },
       { name: 'Linux', icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg' },
-      { name: 'Linux Mint', icon: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Linux_Mint_logo_without_wordmark.svg' },
       { name: 'Git', icon: 'https://skillicons.dev/icons?i=git' },
-    ]
+      { name: 'Postman', icon: 'https://skillicons.dev/icons?i=postman' },
+    ],
   },
 ];
+
+const levelConfig = {
+  core: {
+    dotColor: 'bg-green-400',
+    dotGlow: 'shadow-[0_0_8px_rgba(74,222,128,0.5)]',
+    borderColor: 'border-green-500/20',
+    barColor: 'bg-gradient-to-r from-green-400 to-emerald-500',
+    label: 'Proyectos reales',
+  },
+  competent: {
+    dotColor: 'bg-yellow-400',
+    dotGlow: 'shadow-[0_0_8px_rgba(250,204,21,0.5)]',
+    borderColor: 'border-yellow-500/20',
+    barColor: 'bg-gradient-to-r from-yellow-400 to-amber-500',
+    label: 'Proyectos académicos',
+  },
+  exploration: {
+    dotColor: 'bg-blue-400',
+    dotGlow: 'shadow-[0_0_8px_rgba(96,165,250,0.5)]',
+    borderColor: 'border-blue-500/20',
+    barColor: 'bg-gradient-to-r from-blue-400 to-indigo-500',
+    label: 'Probadas conceptualmente',
+  },
+  infra: {
+    dotColor: 'bg-purple-400',
+    dotGlow: 'shadow-[0_0_8px_rgba(192,132,252,0.5)]',
+    borderColor: 'border-purple-500/20',
+    barColor: 'bg-gradient-to-r from-purple-400 to-violet-500',
+    label: 'Uso puntual',
+  },
+};
 ---
 
 <section id="skills" class="relative py-24 px-4">
   <div class="max-w-5xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-heading font-bold text-center mb-4 stagger-1 animate-fade-in-up">
-      <span class="text-gradient">Stack tecnol&oacute;gico</span>
-    </h2>
-    <p class="text-text-muted text-center mb-16 max-w-xl mx-auto stagger-2 animate-fade-in-up">
-      Tecnolog&iacute;as con las que trabajo d&iacute;a a d&iacute;a.
-    </p>
+    <SectionHeading
+      title="Stack tecnológico"
+      subtitle="Organizado por nivel de dominio, sin inflar ni minimizar."
+    />
 
-    <div class="space-y-12">
+    <div class="space-y-10">
       {
-        skillCategories.map((category, catIdx) => (
-          <div class={`stagger-${catIdx + 1} animate-fade-in-up`}>
-            <div class="flex items-center gap-3 mb-6">
-              <div class={`w-10 h-10 rounded-xl ${category.bgColor} flex items-center justify-center`} set:html={category.icon}>
+        categories.map((category, catIdx) => {
+          const cfg = levelConfig[category.level];
+          return (
+            <div class={`stagger-${catIdx + 1} animate-fade-in-up`}>
+              <div class="flex items-center gap-3 mb-5">
+                <div class={`w-3 h-3 rounded-full ${cfg.dotColor} ${cfg.dotGlow}`} />
+                <h3 class="text-lg font-heading font-semibold text-white">
+                  {category.title}
+                </h3>
+                <span class="text-xs text-text-muted/60 font-light">{cfg.label}</span>
+                <div class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent ml-2" />
               </div>
-              <h3 class={`text-xl font-heading font-semibold ${category.color}`}>{category.title}</h3>
-              <div class="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent ml-2"></div>
-            </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {
-                category.items.map((skill) => (
-                  <div class={`group glass rounded-xl p-4 flex flex-col items-center justify-center gap-3 transition-all duration-300 ${category.hoverBg} hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,204,0.08)] cursor-default`}>
-                    <div class="w-12 h-12 flex items-center justify-center">
-                      <img src={skill.icon} alt={skill.name} class="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-110" loading="lazy" />
+              <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
+                {
+                  category.items.map((skill) => (
+                    <div
+                      class={`group glass rounded-xl p-3 flex flex-col items-center justify-center gap-2 transition-all duration-300 hover:scale-105 border ${cfg.borderColor} cursor-default`}
+                    >
+                      {
+                        skill.icon ? (
+                          <div class="w-10 h-10 flex items-center justify-center">
+                            <img
+                              src={skill.icon}
+                              alt={skill.name}
+                              class="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110"
+                              loading="lazy"
+                            />
+                          </div>
+                        ) : (
+                          <div class="w-10 h-10 flex items-center justify-center">
+                            <span class="text-lg font-heading font-bold text-aurora/60">{skill.name.charAt(0)}</span>
+                          </div>
+                        )
+                      }
+                      <span class="text-[11px] text-text-muted group-hover:text-text-primary transition-colors duration-300 font-medium text-center leading-tight">
+                        {skill.name}
+                      </span>
                     </div>
-                    <span class="text-xs text-text-muted group-hover:text-text-primary transition-colors duration-300 font-medium">{skill.name}</span>
-                  </div>
-                ))
-              }
+                  ))
+                }
+              </div>
             </div>
-          </div>
-        ))
+          );
+        })
       }
     </div>
   </div>
