@@ -20,6 +20,7 @@
       <stop offset="50%" stop-color="#ffffff" stop-opacity="0.3" />
       <stop offset="100%" stop-color="#ffffff" stop-opacity="1" />
     </linearGradient>
+
     <radialGradient id="auroraGradientFooter" cx="50%" cy="0%" r="90%">
       <stop offset="0%" stop-color="#00ffcc" stop-opacity="0.35" />
       <stop offset="100%" stop-color="#00ffcc" stop-opacity="0" />
@@ -29,13 +30,16 @@
       <stop offset="100%" stop-color="#00ffee" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="deepViolet" cx="50%" cy="40%" r="80%">
-      <stop offset="0%" stop-color="#9B51E0" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#6A3093" stop-opacity="0.2"/>
+      <stop offset="0%" stop-color="#1a3a7a" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#0f2555" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0a1a2f" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="deepBlue" cx="50%" cy="50%" r="80%">
-      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0.3"/>
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#2550a0" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0a1a2f" stop-opacity="0"/>
     </radialGradient>
+
     <filter id="blurAurora" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18" /></filter>
     <filter id="blurHalo" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="50" /></filter>
     <filter id="softDepth" x="-50%" y="-50%" width="200%" height="200%">
@@ -45,6 +49,7 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+
     <linearGradient id="reflectionGradient" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#fcd5ce" stop-opacity="0.6" />
       <stop offset="40%" stop-color="#f28482" stop-opacity="0.3" />
@@ -56,6 +61,7 @@
     <filter id="reflectionGlow" x="-100%" y="-50%" width="300%" height="200%">
       <feGaussianBlur stdDeviation="20" />
     </filter>
+
     <linearGradient id="milkyWayGradient" x1="0%" y1="100%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
       <stop offset="25%" stop-color="#c8d0ff" stop-opacity="0.05" />
@@ -63,16 +69,6 @@
       <stop offset="75%" stop-color="#c8d0ff" stop-opacity="0.05" />
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
     </linearGradient>
-    <radialGradient id="auroraPurple" cx="50%" cy="100%" r="70%">
-      <stop offset="0%" stop-color="#9B51E0" stop-opacity="0.25" />
-      <stop offset="100%" stop-color="#9B51E0" stop-opacity="0" />
-    </radialGradient>
-    <g id="pine-cluster">
-      <path d="M0,0 L-5,-18 L-2,-16 L-7,-30 L-3,-28 L-9,-42 L-4,-40 L-10,-50 L-3,-47 L-10,-55 L10,-55 L3,-47 L10,-50 L4,-40 L9,-42 L3,-28 L7,-30 L2,-16 L5,-18 Z" fill="#030812"/>
-      <path d="M-14,0 L-17,-12 L-15,-10 L-18,-20 L-16,-18 L-20,-28 L-17,-26 L-21,-33 L-16,-31 L-21,-38 L-7,-38 L-16,-31 L-21,-33 L-17,-26 L-20,-28 L-16,-18 L-18,-20 L-15,-10 L-17,-12 Z" fill="#030812"/>
-      <path d="M12,0 L9,-10 L11,-8 L8,-18 L10,-16 L7,-24 L9,-22 L6,-28 L10,-26 L6,-32 L18,-32 L10,-26 L6,-28 L9,-22 L7,-24 L10,-16 L8,-18 L11,-8 L9,-10 Z" fill="#030812"/>
-      <path d="M-24,0 L-26,-7 L-24,-5 L-27,-12 L-25,-10 L-28,-16 L-25,-14 L-28,-18 L-20,-18 L-25,-14 L-28,-16 L-25,-10 L-27,-12 L-24,-5 L-26,-7 Z" fill="#030812"/>
-    </g>
   </defs>
 
   <rect width="100%" height="100%" fill="url(#skyGradient)" />
@@ -143,36 +139,36 @@
     <circle cx="973" cy="72" r="1.2" fill="#ffffff" />
   </g>
 
-  <circle cx="1080" cy="50" r="38" fill="none" stroke="#7b68ee" stroke-width="1.5" opacity="0.08" filter="url(#blur)">
+  <circle cx="1080" cy="50" r="60" fill="none" stroke="#7b68ee" stroke-width="2" opacity="0.08" filter="url(#blur)">
     <animate attributeName="opacity" values="0.06;0.10;0.06" dur="4s" repeatCount="indefinite"/>
   </circle>
-  <circle cx="1080" cy="50" r="45" fill="#fcd5ce" opacity="0.15" filter="url(#blur)">
+  <circle cx="1080" cy="50" r="72" fill="#fcd5ce" opacity="0.15" filter="url(#blur)">
     <animate attributeName="opacity" values="0.12;0.20;0.12" dur="4s" repeatCount="indefinite"/>
   </circle>
-  <circle cx="1080" cy="50" r="35" fill="#fcd5ce" opacity="0.1" filter="url(#blur)">
+  <circle cx="1080" cy="50" r="56" fill="#fcd5ce" opacity="0.1" filter="url(#blur)">
     <animate attributeName="opacity" values="0.08;0.14;0.08" dur="4s" begin="0.5s" repeatCount="indefinite"/>
   </circle>
 
-  <circle cx="1080" cy="50" r="25" fill="url(#moonGradient)"/>
+  <circle cx="1080" cy="50" r="40" fill="url(#moonGradient)"/>
 
   <g opacity="0.25">
-    <circle cx="1070" cy="42" r="4" fill="#d47a72"/>
-    <circle cx="1085" cy="56" r="5.5" fill="#d47a72"/>
-    <circle cx="1076" cy="62" r="3" fill="#d47a72"/>
-    <circle cx="1092" cy="40" r="2.5" fill="#d47a72"/>
-    <circle cx="1064" cy="52" r="2" fill="#d47a72"/>
-    <circle cx="1082" cy="34" r="1.8" fill="#d47a72"/>
+    <circle cx="1064" cy="38" r="6" fill="#d47a72"/>
+    <circle cx="1088" cy="59" r="9" fill="#d47a72"/>
+    <circle cx="1074" cy="68" r="5" fill="#d47a72"/>
+    <circle cx="1099" cy="34" r="4" fill="#d47a72"/>
+    <circle cx="1055" cy="53" r="3" fill="#d47a72"/>
+    <circle cx="1084" cy="26" r="3" fill="#d47a72"/>
   </g>
   <g opacity="0.2">
-    <path d="M1069,39 Q1070,42 1073,41" fill="none" stroke="#ffe8e4" stroke-width="0.8"/>
-    <path d="M1084,52 Q1085,56 1089,54" fill="none" stroke="#ffe8e4" stroke-width="0.8"/>
-    <path d="M1075,60 Q1076,62 1079,61" fill="none" stroke="#ffe8e4" stroke-width="0.6"/>
+    <path d="M1061,33 Q1064,38 1069,35" fill="none" stroke="#ffe8e4" stroke-width="1"/>
+    <path d="M1085,55 Q1088,59 1094,56" fill="none" stroke="#ffe8e4" stroke-width="1.2"/>
+    <path d="M1071,65 Q1074,68 1079,66" fill="none" stroke="#ffe8e4" stroke-width="0.8"/>
   </g>
 
-  <path d="M1094,33 Q1100,38 1098,44" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" opacity="0.4">
+  <path d="M1102,25 Q1110,32 1108,42" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.4">
     <animate attributeName="opacity" values="0.3;0.5;0.3" dur="3s" repeatCount="indefinite"/>
   </path>
-  <ellipse cx="1096" cy="37" rx="3" ry="2" fill="white" opacity="0.25" transform="rotate(-20 1096 37)">
+  <ellipse cx="1105" cy="30" rx="5" ry="3" fill="white" opacity="0.25" transform="rotate(-20 1105 30)">
     <animate attributeName="opacity" values="0.15;0.35;0.15" dur="3s" repeatCount="indefinite"/>
   </ellipse>
 
@@ -200,20 +196,6 @@
           M0,450 Q250,130 500,120 Q850,140 1200,160 L1200,450 L0,450 Z;
           M0,450 Q250,70 500,170 Q850,100 1200,140 L1200,450 L0,450 Z;
           M0,450 Q250,100 500,150 Q850,80 1200,130 L1200,450 L0,450 Z
-        " />
-    </path>
-  </g>
-
-  <g filter="url(#blur)">
-    <path fill="url(#auroraPurple)" opacity="0.4">
-      <animateTransform attributeName="transform" type="translate"
-        values="50 0; -50 0; 50 0" dur="14s" repeatCount="indefinite" />
-      <animate attributeName="d" dur="9s" repeatCount="indefinite"
-        values="
-          M0,450 Q350,80 650,220 T1200,120 L1200,450 L0,450 Z;
-          M0,450 Q350,120 650,170 T1200,150 L1200,450 L0,450 Z;
-          M0,450 Q350,70 650,200 T1200,100 L1200,450 L0,450 Z;
-          M0,450 Q350,80 650,220 T1200,120 L1200,450 L0,450 Z
         " />
     </path>
   </g>
@@ -312,29 +294,12 @@
   </g>
 
   <g>
-    <path d="M0,850 L0,620 Q80,605 160,615 Q240,590 320,605 Q400,582 480,595 Q560,572 640,585 Q720,565 800,580 Q880,560 960,578 Q1040,558 1120,575 Q1200,590 1200,605 L1200,850 Z" fill="#060d1e"/>
-    <path d="M0,850 L0,630 Q120,615 240,625 Q360,600 480,615 Q600,590 720,605 Q840,585 960,600 Q1080,580 1200,595 L1200,850 Z" fill="#040915"/>
-
-    <use href="#pine-cluster" transform="translate(30, 630) scale(0.6)"/>
-    <use href="#pine-cluster" transform="translate(100, 625) scale(0.8)"/>
-    <use href="#pine-cluster" transform="translate(190, 620) scale(0.7)"/>
-    <use href="#pine-cluster" transform="translate(270, 615) scale(0.9)"/>
-    <use href="#pine-cluster" transform="translate(360, 612) scale(0.7)"/>
-    <use href="#pine-cluster" transform="translate(440, 608) scale(1)"/>
-    <use href="#pine-cluster" transform="translate(530, 605) scale(0.8)"/>
-    <use href="#pine-cluster" transform="translate(600, 608) scale(0.6)"/>
-    <use href="#pine-cluster" transform="translate(670, 600) scale(1.1)"/>
-    <use href="#pine-cluster" transform="translate(760, 605) scale(0.9)"/>
-    <use href="#pine-cluster" transform="translate(840, 600) scale(1)"/>
-    <use href="#pine-cluster" transform="translate(920, 605) scale(0.7)"/>
-    <use href="#pine-cluster" transform="translate(990, 598) scale(0.9)"/>
-    <use href="#pine-cluster" transform="translate(1070, 600) scale(1)"/>
-    <use href="#pine-cluster" transform="translate(1150, 608) scale(0.8)"/>
-
-    <use href="#pine-cluster" transform="translate(320, 610) scale(1.3)"/>
-    <use href="#pine-cluster" transform="translate(780, 600) scale(1.2)"/>
-    <use href="#pine-cluster" transform="translate(1020, 595) scale(1.4)"/>
+    <path d="M0,850 L0,570 L50,555 L100,575 L140,550 L200,570 L260,540 L320,565 L380,535 L440,560 L500,545 L560,530 L620,555 L680,520 L740,550 L800,530 L860,545 L920,525 L980,550 L1040,535 L1100,560 L1140,540 L1200,565 L1200,850 Z" fill="#040a18"/>
+    <path d="M0,850 L0,590 L40,575 L80,595 L130,560 L180,585 L230,550 L290,580 L350,545 L410,575 L470,540 L530,570 L590,535 L650,565 L710,530 L770,560 L830,540 L890,555 L950,530 L1010,565 L1070,540 L1120,570 L1160,550 L1200,580 L1200,850 Z" fill="#030812"/>
+    <path d="M0,850 L0,610 L35,590 L70,615 L120,580 L180,605 L240,570 L300,600 L360,575 L420,595 L480,565 L540,590 L600,560 L660,585 L720,555 L780,580 L840,560 L900,575 L960,555 L1020,585 L1080,560 L1130,590 L1170,575 L1200,595 L1200,850 Z" fill="#02060e"/>
   </g>
+
+  <rect x="0" y="580" width="1200" height="270" fill="#080e20"/>
 
   <g>
     <ellipse cx="1080" cy="720" rx="60" ry="120" fill="#fcd5ce" opacity="0.15" filter="url(#reflectionGlow)">
@@ -354,54 +319,56 @@
     </ellipse>
   </g>
 
-  <path fill="none" stroke="white" stroke-width="2" opacity="0.08" filter="url(#reflectionBlur)"
-        d="M0,615 Q200,580 400,620 T800,590 T1200,615">
-    <animate attributeName="d" dur="8s" repeatCount="indefinite"
-             values="M0,615 Q200,580 400,620 T800,590 T1200,615;
-                     M0,595 Q200,630 400,590 T800,620 T1200,595;
-                     M0,615 Q200,580 400,620 T800,590 T1200,615"/>
-  </path>
-  <path fill="none" stroke="white" stroke-width="1.5" opacity="0.06" filter="url(#reflectionBlur)"
-        d="M0,645 Q300,600 600,650 T1200,615">
-    <animate attributeName="d" dur="7s" repeatCount="indefinite"
-             values="M0,645 Q300,600 600,650 T1200,615;
-                     M0,625 Q300,650 600,620 T1200,645;
-                     M0,645 Q300,600 600,650 T1200,615"/>
-  </path>
-  <path fill="none" stroke="white" stroke-width="1" opacity="0.05" filter="url(#reflectionBlur)"
-        d="M0,675 Q400,640 800,680 T1200,640">
-    <animate attributeName="d" dur="6s" repeatCount="indefinite"
-             values="M0,675 Q400,640 800,680 T1200,640;
-                     M0,655 Q400,680 800,650 T1200,670;
-                     M0,675 Q400,640 800,680 T1200,640"/>
-  </path>
+  <g filter="url(#reflectionBlur)" opacity="0.12">
+    <path fill="none" stroke="#fcd5ce" stroke-width="4"
+          d="M0,610 C100,585 200,625 300,590 C400,555 500,635 600,595 C700,555 800,640 900,600 C1000,565 1100,625 1200,595">
+      <animate attributeName="d" dur="8s" repeatCount="indefinite"
+               values="M0,610 C100,585 200,625 300,590 C400,555 500,635 600,595 C700,555 800,640 900,600 C1000,565 1100,625 1200,595;
+                       M0,595 C120,620 220,580 320,608 C420,570 520,610 620,585 C720,570 820,615 920,590 C1020,575 1120,605 1200,600;
+                       M0,610 C100,585 200,625 300,590 C400,555 500,635 600,595 C700,555 800,640 900,600 C1000,565 1100,625 1200,595"/>
+    </path>
+    <path fill="none" stroke="#fcd5ce" stroke-width="3"
+          d="M0,640 C120,610 220,655 350,620 C480,585 580,660 700,625 C820,590 920,650 1050,615">
+      <animate attributeName="d" dur="7s" repeatCount="indefinite"
+               values="M0,640 C120,610 220,655 350,620 C480,585 580,660 700,625 C820,590 920,650 1050,615;
+                       M0,625 C140,645 240,600 370,635 C490,600 600,645 720,612 C840,600 940,635 1050,625;
+                       M0,640 C120,610 220,655 350,620 C480,585 580,660 700,625 C820,590 920,650 1050,615"/>
+    </path>
+    <path fill="none" stroke="#fcd5ce" stroke-width="2"
+          d="M0,670 C150,640 280,685 420,650 C560,615 680,680 820,645 C960,610 1080,670 1200,640">
+      <animate attributeName="d" dur="6s" repeatCount="indefinite"
+               values="M0,670 C150,640 280,685 420,650 C560,615 680,680 820,645 C960,610 1080,670 1200,640;
+                       M0,655 C170,670 300,625 440,660 C570,630 690,660 830,635 C970,620 1090,655 1200,650;
+                       M0,670 C150,640 280,685 420,650 C560,615 680,680 820,645 C960,610 1080,670 1200,640"/>
+    </path>
+  </g>
 
   <path fill="url(#deepViolet)" filter="url(#softDepth)"
-        d="M0,610 C300,540 900,660 1200,580 L1200,850 L0,850 Z">
+        d="M0,610 C100,585 200,625 300,590 C400,555 500,635 600,595 C700,555 800,640 900,600 C1000,565 1100,625 1200,595 L1200,850 L0,850 Z">
     <animate attributeName="d" dur="8s" repeatCount="indefinite"
-             values="M0,610 C300,540 900,660 1200,580 L1200,850 L0,850 Z;
-                     M0,590 C350,640 850,560 1200,600 L1200,850 L0,850 Z;
-                     M0,610 C300,540 900,660 1200,580 L1200,850 L0,850 Z"/>
+             values="M0,610 C100,585 200,625 300,590 C400,555 500,635 600,595 C700,555 800,640 900,600 C1000,565 1100,625 1200,595 L1200,850 L0,850 Z;
+                     M0,595 C120,620 220,580 320,608 C420,570 520,610 620,585 C720,570 820,615 920,590 C1020,575 1120,605 1200,600 L1200,850 L0,850 Z;
+                     M0,610 C100,585 200,625 300,590 C400,555 500,635 600,595 C700,555 800,640 900,600 C1000,565 1100,625 1200,595 L1200,850 L0,850 Z"/>
   </path>
   <path fill="url(#deepBlue)" filter="url(#softDepth)"
-        d="M0,640 C400,570 800,690 1200,610 L1200,850 L0,850 Z">
+        d="M0,640 C120,610 220,655 350,620 C480,585 580,660 700,625 C820,590 920,650 1050,615 L1200,625 L1200,850 L0,850 Z">
     <animate attributeName="d" dur="7s" repeatCount="indefinite"
-             values="M0,640 C400,570 800,690 1200,610 L1200,850 L0,850 Z;
-                     M0,620 C450,630 750,590 1200,620 L1200,850 L0,850 Z;
-                     M0,640 C400,570 800,690 1200,610 L1200,850 L0,850 Z"/>
+             values="M0,640 C120,610 220,655 350,620 C480,585 580,660 700,625 C820,590 920,650 1050,615 L1200,625 L1200,850 L0,850 Z;
+                     M0,625 C140,645 240,600 370,635 C490,600 600,645 720,612 C840,600 940,635 1050,625 L1200,620 L1200,850 L0,850 Z;
+                     M0,640 C120,610 220,655 350,620 C480,585 580,660 700,625 C820,590 920,650 1050,615 L1200,625 L1200,850 L0,850 Z"/>
   </path>
   <path fill="url(#deepViolet)" filter="url(#softDepth)"
-        d="M0,670 C500,590 700,720 1200,630 L1200,850 L0,850 Z">
+        d="M0,670 C150,640 280,685 420,650 C560,615 680,680 820,645 C960,610 1080,670 1200,640 L1200,850 L0,850 Z">
     <animate attributeName="d" dur="6s" repeatCount="indefinite"
-             values="M0,670 C500,590 700,720 1200,630 L1200,850 L0,850 Z;
-                     M0,650 C520,650 680,680 1200,650 L1200,850 L0,850 Z;
-                     M0,670 C500,590 700,720 1200,630 L1200,850 L0,850 Z"/>
+             values="M0,670 C150,640 280,685 420,650 C560,615 680,680 820,645 C960,610 1080,670 1200,640 L1200,850 L0,850 Z;
+                     M0,655 C170,670 300,625 440,660 C570,630 690,660 830,635 C970,620 1090,655 1200,650 L1200,850 L0,850 Z;
+                     M0,670 C150,640 280,685 420,650 C560,615 680,680 820,645 C960,610 1080,670 1200,640 L1200,850 L0,850 Z"/>
   </path>
   <path fill="url(#deepBlue)" filter="url(#softDepth)"
-        d="M0,700 C500,620 700,750 1200,660 L1200,850 L0,850 Z">
+        d="M0,710 C180,680 330,730 480,695 C600,665 720,725 880,690 C1000,660 1100,705 1200,680 L1200,850 L0,850 Z">
     <animate attributeName="d" dur="5.5s" repeatCount="indefinite"
-             values="M0,700 C500,620 700,750 1200,660 L1200,850 L0,850 Z;
-                     M0,690 C520,670 680,710 1200,680 L1200,850 L0,850 Z;
-                     M0,700 C500,620 700,750 1200,660 L1200,850 L0,850 Z"/>
+             values="M0,710 C180,680 330,730 480,695 C600,665 720,725 880,690 C1000,660 1100,705 1200,680 L1200,850 L0,850 Z;
+                     M0,695 C200,715 350,675 500,710 C620,690 740,705 880,680 C1020,670 1120,700 1200,690 L1200,850 L0,850 Z;
+                     M0,710 C180,680 330,730 480,695 C600,665 720,725 880,690 C1000,660 1100,705 1200,680 L1200,850 L0,850 Z"/>
   </path>
 </svg>
