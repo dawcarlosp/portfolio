@@ -76,7 +76,7 @@
   50% { border-color: rgba(0, 255, 204, 0.6); }
 }
 
-.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float { animation: float 6s ease-in-out infinite; will-change: transform; }
 .animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
 .animate-shimmer { 
   background-size: 200% auto;
@@ -99,8 +99,8 @@
 
 .glass {
   background: var(--color-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--color-glass-border);
   will-change: transform;
   transform: translateZ(0);
@@ -108,8 +108,8 @@
 
 .glass-strong {
   background: rgba(11, 19, 43, 0.7);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(0, 255, 204, 0.1);
   will-change: transform;
   transform: translateZ(0);
