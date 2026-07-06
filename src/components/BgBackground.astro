@@ -1,32 +1,30 @@
-<svg class="fixed inset-0 w-full h-full pointer-events-none" viewBox="0 0 1200 850" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="z-index: -1; transform: translateZ(0); will-change: opacity; contain: paint;">
+<svg class="fixed inset-0 w-full h-full pointer-events-none" viewBox="0 0 1200 850" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="z-index: -1; contain: paint;">
   <defs>
-    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#0B132B" />
       <stop offset="40%" stop-color="#111133" />
       <stop offset="100%" stop-color="#0a1a2f" />
     </linearGradient>
-    <radialGradient id="auroraGradient" cx="50%" cy="100%" r="80%">
+    <radialGradient id="auroraGrad" cx="50%" cy="100%" r="80%">
       <stop offset="0%" stop-color="#00ffcc" stop-opacity="0.5" />
       <stop offset="100%" stop-color="#00ffcc" stop-opacity="0" />
     </radialGradient>
-    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8" /></filter>
-    <radialGradient id="moonGradient" cx="65%" cy="35%" r="60%">
+    <radialGradient id="moonGrad" cx="65%" cy="35%" r="60%">
       <stop offset="0%" stop-color="#ffe8e4" />
       <stop offset="35%" stop-color="#fcd5ce" />
       <stop offset="100%" stop-color="#e8847a" />
     </radialGradient>
-    <linearGradient id="trailGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="trailGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
       <stop offset="40%" stop-color="#ffffff" stop-opacity="0.15" />
       <stop offset="100%" stop-color="#ffffff" stop-opacity="1" />
     </linearGradient>
-    <linearGradient id="trailGradientWarm" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="trailGradWarm" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#ffe0e0" stop-opacity="0" />
       <stop offset="40%" stop-color="#ffe0e0" stop-opacity="0.15" />
       <stop offset="100%" stop-color="#ffe0e0" stop-opacity="1" />
     </linearGradient>
-
-    <radialGradient id="auroraGradientFooter" cx="50%" cy="0%" r="90%">
+    <radialGradient id="auroraGradFooter" cx="50%" cy="0%" r="90%">
       <stop offset="0%" stop-color="#00ffcc" stop-opacity="0.35" />
       <stop offset="100%" stop-color="#00ffcc" stop-opacity="0" />
     </radialGradient>
@@ -44,30 +42,12 @@
       <stop offset="60%" stop-color="#2550a0" stop-opacity="0.8"/>
       <stop offset="100%" stop-color="#0a1a2f" stop-opacity="0"/>
     </radialGradient>
-
-    <filter id="blurAurora" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7" /></filter>
-    <filter id="blurHalo" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14" /></filter>
-    <filter id="softDepth" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <linearGradient id="reflectionGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="reflGrad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#fcd5ce" stop-opacity="0.6" />
       <stop offset="40%" stop-color="#f28482" stop-opacity="0.3" />
       <stop offset="100%" stop-color="#f28482" stop-opacity="0" />
     </linearGradient>
-    <filter id="reflectionBlur" x="-100%" y="-50%" width="300%" height="200%">
-      <feGaussianBlur stdDeviation="5" />
-    </filter>
-    <filter id="reflectionGlow" x="-100%" y="-50%" width="300%" height="200%">
-      <feGaussianBlur stdDeviation="7" />
-    </filter>
-
-    <linearGradient id="milkyWayGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+    <linearGradient id="milkyGrad" x1="0%" y1="100%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
       <stop offset="25%" stop-color="#c8d0ff" stop-opacity="0.05" />
       <stop offset="50%" stop-color="#e8d0ff" stop-opacity="0.08" />
@@ -76,87 +56,39 @@
     </linearGradient>
   </defs>
 
-  <rect width="100%" height="100%" fill="url(#skyGradient)" />
+  <rect width="100%" height="100%" fill="url(#skyGrad)" />
 
-  <path d="M-100,700 Q300,450 600,200 L1300,-50 L1300,100 Q500,350 0,600 Z" fill="url(#milkyWayGradient)" filter="url(#blurAurora)" opacity="0.6"/>
-  <path d="M-50,650 Q350,420 650,180 L1250,-20 L1250,60 Q500,320 0,570 Z" fill="url(#milkyWayGradient)" filter="url(#blur)" opacity="0.4"/>
+  <path d="M-100,700 Q300,450 600,200 L1300,-50 L1300,100 Q500,350 0,600 Z" fill="url(#milkyGrad)" class="bg-blur-big" opacity="0.6"/>
+  <path d="M-50,650 Q350,420 650,180 L1250,-20 L1250,60 Q500,320 0,570 Z" fill="url(#milkyGrad)" class="bg-blur-med" opacity="0.4"/>
 
-  <g style="will-change: opacity">
-    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="6s" repeatCount="indefinite"/>
-    <circle cx="80" cy="550" r="0.5" fill="#c8d0ff"/>
-    <circle cx="160" cy="490" r="0.4" fill="#e0d0ff"/>
-    <circle cx="220" cy="520" r="0.6" fill="#c8d0ff"/>
-    <circle cx="280" cy="460" r="0.3" fill="#ffffff"/>
-    <circle cx="340" cy="440" r="0.5" fill="#e0d0ff"/>
-    <circle cx="400" cy="380" r="0.4" fill="#c8d0ff"/>
-    <circle cx="460" cy="350" r="0.6" fill="#e0d0ff"/>
-    <circle cx="520" cy="310" r="0.5" fill="#c8d0ff"/>
-    <circle cx="580" cy="270" r="0.3" fill="#ffffff"/>
-    <circle cx="640" cy="240" r="0.5" fill="#e0d0ff"/>
-    <circle cx="700" cy="190" r="0.4" fill="#c8d0ff"/>
-    <circle cx="760" cy="160" r="0.6" fill="#e0d0ff"/>
-    <circle cx="820" cy="130" r="0.5" fill="#c8d0ff"/>
-    <circle cx="880" cy="100" r="0.3" fill="#ffffff"/>
-    <circle cx="940" cy="70" r="0.4" fill="#e0d0ff"/>
-    <circle cx="1000" cy="40" r="0.5" fill="#c8d0ff"/>
+  <g class="bg-stars-1" />
+  <g class="bg-stars-2" />
+  <g class="bg-stars-3" />
+
+  <g class="bg-shooting-star-1" style="will-change: transform, opacity">
+    <g transform="rotate(45)">
+      <polygon points="-120,-0.2 0,-2 0,2 -120,0.2" fill="url(#trailGrad)"/>
+      <circle cx="0" cy="0" r="2.5" fill="white" class="bg-star-pulse"/>
+    </g>
   </g>
-  <g style="will-change: opacity">
-    <animate attributeName="opacity" values="0.5;1;0.5" dur="8s" begin="2s" repeatCount="indefinite"/>
-    <circle cx="120" cy="520" r="0.3" fill="#ffffff"/>
-    <circle cx="200" cy="480" r="0.5" fill="#e0d0ff"/>
-    <circle cx="310" cy="420" r="0.4" fill="#c8d0ff"/>
-    <circle cx="380" cy="400" r="0.3" fill="#ffffff"/>
-    <circle cx="440" cy="370" r="0.5" fill="#c8d0ff"/>
-    <circle cx="500" cy="330" r="0.4" fill="#e0d0ff"/>
-    <circle cx="560" cy="290" r="0.3" fill="#ffffff"/>
-    <circle cx="620" cy="250" r="0.5" fill="#c8d0ff"/>
-    <circle cx="680" cy="210" r="0.4" fill="#e0d0ff"/>
-    <circle cx="740" cy="180" r="0.3" fill="#ffffff"/>
-    <circle cx="800" cy="140" r="0.5" fill="#c8d0ff"/>
-    <circle cx="860" cy="110" r="0.4" fill="#e0d0ff"/>
-    <circle cx="920" cy="80" r="0.3" fill="#ffffff"/>
-    <circle cx="980" cy="50" r="0.5" fill="#c8d0ff"/>
+  <g class="bg-shooting-star-2" style="will-change: transform, opacity">
+    <g transform="rotate(135)">
+      <polygon points="-100,-0.15 0,-1.5 0,1.5 -100,0.15" fill="url(#trailGrad)"/>
+      <circle cx="0" cy="0" r="2" fill="white" class="bg-star-pulse"/>
+    </g>
+  </g>
+  <g class="bg-shooting-star-3" style="will-change: transform, opacity">
+    <g transform="rotate(60)">
+      <polygon points="-150,-0.1 0,-1.2 0,1.2 -150,0.1" fill="url(#trailGradWarm)"/>
+      <circle cx="0" cy="0" r="1.5" fill="#ffe0e0" class="bg-star-pulse"/>
+    </g>
   </g>
 
-  <g style="will-change: opacity">
-    <animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" begin="0s" repeatCount="indefinite"/>
-    <circle cx="225" cy="10" r="1.0" fill="#ffe0e0" />
-    <circle cx="660" cy="28" r="1.5" fill="#f0f8ff" />
-    <circle cx="741" cy="27" r="1.5" fill="#f0f8ff" />
-    <circle cx="338" cy="64" r="1.1" fill="#f0f8ff" />
-    <circle cx="154" cy="8" r="1.4" fill="#f0f8ff" />
-  </g>
-  <g style="will-change: opacity">
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="3.2s" begin="0.7s" repeatCount="indefinite"/>
-    <circle cx="658" cy="18" r="1.3" fill="#f0f8ff" />
-    <circle cx="497" cy="38" r="1.1" fill="#e0e0ff" />
-    <circle cx="623" cy="24" r="0.8" fill="#f0f8ff" />
-    <circle cx="559" cy="64" r="1.4" fill="#ffe0e0" />
-    <circle cx="894" cy="9" r="1.6" fill="#ffffff" />
-    <circle cx="388" cy="56" r="1.1" fill="#e0e0ff" />
-    <circle cx="936" cy="18" r="1.3" fill="#ffe0e0" />
-  </g>
-  <g style="will-change: opacity">
-    <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" begin="1.5s" repeatCount="indefinite"/>
-    <circle cx="1068" cy="86" r="1.2" fill="#fffacd" />
-    <circle cx="13" cy="74" r="1.3" fill="#fffacd" />
-    <circle cx="804" cy="90" r="1.2" fill="#fffacd" />
-    <circle cx="973" cy="72" r="1.2" fill="#ffffff" />
-  </g>
-
-  <g transform="translate(0, 100)" style="will-change: opacity">
-    <circle cx="1080" cy="150" r="60" fill="none" stroke="#7b68ee" stroke-width="2" opacity="0.08" filter="url(#blur)">
-      <animate attributeName="opacity" values="0.06;0.10;0.06" dur="4s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1080" cy="150" r="72" fill="#fcd5ce" opacity="0.15" filter="url(#blur)">
-      <animate attributeName="opacity" values="0.12;0.20;0.12" dur="4s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1080" cy="150" r="56" fill="#fcd5ce" opacity="0.1" filter="url(#blur)">
-      <animate attributeName="opacity" values="0.08;0.14;0.08" dur="4s" begin="0.5s" repeatCount="indefinite"/>
-    </circle>
-
-    <circle cx="1080" cy="150" r="40" fill="url(#moonGradient)"/>
-
+  <g class="bg-moon" style="will-change: opacity">
+    <circle cx="1080" cy="150" r="60" fill="none" stroke="#7b68ee" stroke-width="2" opacity="0.08" class="bg-blur-med"/>
+    <circle cx="1080" cy="150" r="72" fill="#fcd5ce" opacity="0.15" class="bg-blur-med"/>
+    <circle cx="1080" cy="150" r="56" fill="#fcd5ce" opacity="0.1" class="bg-blur-med"/>
+    <circle cx="1080" cy="150" r="40" fill="url(#moonGrad)"/>
     <g opacity="0.25">
       <circle cx="1064" cy="138" r="6" fill="#d47a72"/>
       <circle cx="1088" cy="159" r="9" fill="#d47a72"/>
@@ -170,152 +102,25 @@
       <path d="M1085,155 Q1088,159 1094,156" fill="none" stroke="#ffe8e4" stroke-width="1.2"/>
       <path d="M1071,165 Q1074,168 1079,166" fill="none" stroke="#ffe8e4" stroke-width="0.8"/>
     </g>
-
-    <path d="M1102,125 Q1110,132 1108,142" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.4" style="will-change: opacity">
-      <animate attributeName="opacity" values="0.3;0.5;0.3" dur="3s" repeatCount="indefinite"/>
-    </path>
-    <ellipse cx="1105" cy="130" rx="5" ry="3" fill="white" opacity="0.25" transform="rotate(-20 1105 130)" style="will-change: opacity">
-      <animate attributeName="opacity" values="0.15;0.35;0.15" dur="3s" repeatCount="indefinite"/>
-    </ellipse>
+    <path d="M1102,125 Q1110,132 1108,142" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.4" style="will-change: opacity" class="bg-moon-glow"/>
+    <ellipse cx="1105" cy="130" rx="5" ry="3" fill="white" opacity="0.25" transform="rotate(-20 1105 130)" style="will-change: opacity" class="bg-moon-glow"/>
   </g>
 
-  <g filter="url(#blur)" style="will-change: opacity, transform">
-    <path fill="url(#auroraGradient)" opacity="0.7">
-      <animateTransform attributeName="transform" type="translate"
-        values="-100 0; 0 0; 100 0; 0 0; -100 0" dur="12s" repeatCount="indefinite" />
-      <animate attributeName="d" dur="10s" repeatCount="indefinite"
-        values="
-          M0,500 Q300,60 600,200 T1200,100 L1200,500 L0,500 Z;
-          M0,500 Q300,90 600,150 T1200,120 L1200,500 L0,500 Z;
-          M0,500 Q300,50 600,180 T1200,90 L1200,500 L0,500 Z;
-          M0,500 Q300,60 600,200 T1200,100 L1200,500 L0,500 Z
-        " />
-    </path>
+  <g class="bg-aurora-1" style="will-change: transform, opacity">
+    <path fill="url(#auroraGrad)" opacity="0.7"/>
+  </g>
+  <g class="bg-aurora-2" style="will-change: transform, opacity">
+    <path fill="url(#auroraGrad)" opacity="0.5"/>
   </g>
 
-  <g filter="url(#blur)" style="will-change: opacity, transform">
-    <path fill="url(#auroraGradient)" opacity="0.5">
-      <animateTransform attributeName="transform" type="translate"
-        values="150 0; 0 0; -150 0; 0 0; 150 0" dur="16s" repeatCount="indefinite" />
-      <animate attributeName="d" dur="12s" repeatCount="indefinite"
-        values="
-          M0,450 Q250,100 500,150 Q850,80 1200,130 L1200,450 L0,450 Z;
-          M0,450 Q250,130 500,120 Q850,140 1200,160 L1200,450 L0,450 Z;
-          M0,450 Q250,70 500,170 Q850,100 1200,140 L1200,450 L0,450 Z;
-          M0,450 Q250,100 500,150 Q850,80 1200,130 L1200,450 L0,450 Z
-        " />
-    </path>
+  <g class="bg-aurora-footer" style="will-change: opacity">
+    <rect x="0" y="430" width="1200" height="220" fill="url(#auroraGradFooter)" opacity="0.12" class="bg-blur-big"/>
   </g>
-
-  <g style="will-change: opacity, transform">
-    <animate attributeName="opacity" values="0;1;0" dur="3s" begin="0s" repeatCount="indefinite"/>
-    <animateTransform attributeName="transform" type="translate" from="100 -100" to="1300 1100"
-      dur="3s" begin="0s" repeatCount="indefinite" />
-    <g transform="rotate(45)">
-      <polygon points="-120,-0.2 0,-2 0,2 -120,0.2" fill="url(#trailGradient)"/>
-      <circle cx="0" cy="0" r="10" fill="white" opacity="0.12">
-        <animate attributeName="r" values="10;15;10" dur="0.4s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="0" cy="0" r="4" fill="white" opacity="0.3">
-        <animate attributeName="r" values="4;6;4" dur="0.4s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="0" cy="0" r="2.5" fill="white">
-        <animate attributeName="r" values="2.5;4;2.5" dur="0.4s" repeatCount="indefinite"/>
-      </circle>
-    </g>
+  <g class="bg-aurora-halo" style="will-change: transform, opacity">
+    <path fill="url(#auroraHalo)" opacity="0.5"/>
   </g>
-
-  <g style="will-change: opacity, transform">
-    <animate attributeName="opacity" values="0;1;0" dur="3.5s" begin="1s" repeatCount="indefinite"/>
-    <animateTransform attributeName="transform" type="translate" from="1100 -100" to="-300 1300"
-      dur="3.5s" begin="1s" repeatCount="indefinite" />
-    <g transform="rotate(135)">
-      <polygon points="-100,-0.15 0,-1.5 0,1.5 -100,0.15" fill="url(#trailGradient)"/>
-      <circle cx="0" cy="0" r="8" fill="white" opacity="0.12">
-        <animate attributeName="r" values="8;12;8" dur="0.4s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="0" cy="0" r="3" fill="white" opacity="0.3">
-        <animate attributeName="r" values="3;4.5;3" dur="0.4s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="0" cy="0" r="2" fill="white">
-        <animate attributeName="r" values="2;3;2" dur="0.4s" repeatCount="indefinite"/>
-      </circle>
-    </g>
-  </g>
-
-  <g style="will-change: opacity, transform">
-    <animate attributeName="opacity" values="0;0.8;0" dur="5s" begin="2s" repeatCount="indefinite"/>
-    <animateTransform attributeName="transform" type="translate" from="200 300" to="1000 1200"
-      dur="5s" begin="2s" repeatCount="indefinite" />
-    <g transform="rotate(60)">
-      <polygon points="-150,-0.1 0,-1.2 0,1.2 -150,0.1" fill="url(#trailGradientWarm)"/>
-      <circle cx="0" cy="0" r="8" fill="#ffe0e0" opacity="0.12">
-        <animate attributeName="r" values="8;12;8" dur="0.6s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="0" cy="0" r="3" fill="#ffe0e0" opacity="0.3">
-        <animate attributeName="r" values="3;4.5;3" dur="0.6s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="0" cy="0" r="1.5" fill="#ffe0e0">
-        <animate attributeName="r" values="1.5;3;1.5" dur="0.6s" repeatCount="indefinite"/>
-      </circle>
-    </g>
-  </g>
-
-  <g style="will-change: opacity">
-    <animate attributeName="opacity" values="0.3;1;0.3" dur="3.8s" begin="0s" repeatCount="indefinite"/>
-    <circle cx="100" cy="330" r="1.1" fill="#ffffff"/>
-    <circle cx="600" cy="370" r="1.3" fill="#e0e0ff"/>
-    <circle cx="400" cy="480" r="1.0" fill="#ffe0e0"/>
-    <circle cx="1100" cy="520" r="1.2" fill="#fffacd"/>
-    <circle cx="200" cy="560" r="0.9" fill="#f0f8ff"/>
-  </g>
-  <g style="will-change: opacity">
-    <animate attributeName="opacity" values="0.4;1;0.4" dur="2.8s" begin="1.2s" repeatCount="indefinite"/>
-    <circle cx="300" cy="350" r="1.2" fill="#fffacd"/>
-    <circle cx="900" cy="390" r="1.1" fill="#fffacd"/>
-    <circle cx="750" cy="460" r="1.0" fill="#ffffff"/>
-    <circle cx="150" cy="440" r="0.8" fill="#e0e0ff"/>
-    <circle cx="500" cy="540" r="1.1" fill="#ffe0e0"/>
-    <circle cx="1050" cy="580" r="0.9" fill="#ffffff"/>
-  </g>
-  <g style="will-change: opacity">
-    <animate attributeName="opacity" values="0.5;1;0.5" dur="5s" begin="2.5s" repeatCount="indefinite"/>
-    <circle cx="850" cy="310" r="0.9" fill="#f0f8ff"/>
-    <circle cx="50" cy="500" r="1.0" fill="#fffacd"/>
-    <circle cx="950" cy="550" r="0.8" fill="#e0e0ff"/>
-    <circle cx="350" cy="610" r="0.9" fill="#f0f8ff"/>
-  </g>
-
-  <rect x="0" y="430" width="1200" height="220" fill="url(#auroraGradientFooter)" opacity="0.12" filter="url(#blurAurora)" style="will-change: opacity">
-    <animate attributeName="opacity" values="0.08;0.16;0.08" dur="6s" repeatCount="indefinite"/>
-  </rect>
-
-  <g filter="url(#blurHalo)" style="will-change: opacity, transform">
-    <path fill="url(#auroraHalo)" opacity="0.5">
-      <animateTransform attributeName="transform" type="translate"
-        values="0 0; 100 0; -100 0; 0 0" dur="12s" repeatCount="indefinite" />
-      <animate attributeName="d" dur="12s" repeatCount="indefinite"
-        values="
-          M0,150 Q300,390 600,310 T1200,350 L1200,850 L0,850 Z;
-          M0,150 Q300,410 600,330 T1200,320 L1200,850 L0,850 Z;
-          M0,150 Q300,350 600,350 T1200,390 L1200,850 L0,850 Z;
-          M0,150 Q300,390 600,310 T1200,350 L1200,850 L0,850 Z
-        " />
-    </path>
-  </g>
-
-  <g filter="url(#blurAurora)" style="will-change: opacity, transform">
-    <path fill="url(#auroraGradientFooter)" opacity="0.35">
-      <animateTransform attributeName="transform" type="translate"
-        values="0 0; 100 0; -100 0; 0 0" dur="8s" repeatCount="indefinite" />
-      <animate attributeName="d" dur="8s" repeatCount="indefinite"
-        values="
-          M0,200 Q300,340 600,310 T1200,340 L1200,850 L0,850 Z;
-          M0,200 Q300,380 600,290 T1200,360 L1200,850 L0,850 Z;
-          M0,200 Q300,320 600,330 T1200,310 L1200,850 L0,850 Z;
-          M0,200 Q300,340 600,310 T1200,340 L1200,850 L0,850 Z
-        " />
-    </path>
+  <g class="bg-aurora-footer-2" style="will-change: transform, opacity">
+    <path fill="url(#auroraGradFooter)" opacity="0.35"/>
   </g>
 
   <g>
@@ -326,74 +131,162 @@
 
   <rect x="0" y="580" width="1200" height="270" fill="#080e20"/>
 
-  <g style="will-change: opacity">
-    <ellipse cx="1080" cy="720" rx="60" ry="120" fill="#fcd5ce" opacity="0.15" filter="url(#reflectionGlow)">
-      <animate attributeName="opacity" values="0.1;0.2;0.1" dur="3s" repeatCount="indefinite"/>
-      <animate attributeName="ry" values="120;140;120" dur="3s" repeatCount="indefinite"/>
-    </ellipse>
-    <rect x="1040" y="600" width="80" height="250" fill="url(#reflectionGradient)" filter="url(#reflectionBlur)" opacity="0.7">
-      <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3s" repeatCount="indefinite"/>
-      <animate attributeName="width" values="80;100;80" dur="3s" repeatCount="indefinite"/>
-    </rect>
-    <ellipse cx="1080" cy="660" rx="20" ry="35" fill="#fcd5ce" opacity="0.35" filter="url(#reflectionBlur)">
-      <animate attributeName="opacity" values="0.25;0.45;0.25" dur="3s" repeatCount="indefinite"/>
-      <animate attributeName="ry" values="35;50;35" dur="3s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="1080" cy="810" rx="25" ry="5" fill="#fcd5ce" opacity="0.25" filter="url(#reflectionBlur)">
-      <animate attributeName="opacity" values="0.15;0.35;0.15" dur="3s" begin="0.5s" repeatCount="indefinite"/>
-    </ellipse>
+  <g class="bg-reflection" style="will-change: opacity">
+    <ellipse cx="1080" cy="720" rx="60" ry="120" fill="#fcd5ce" opacity="0.15" class="bg-blur-big"/>
+    <rect x="1040" y="600" width="80" height="250" fill="url(#reflGrad)" opacity="0.7" class="bg-blur-med"/>
+    <ellipse cx="1080" cy="660" rx="20" ry="35" fill="#fcd5ce" opacity="0.35" class="bg-blur-med"/>
+    <ellipse cx="1080" cy="810" rx="25" ry="5" fill="#fcd5ce" opacity="0.25" class="bg-blur-med"/>
   </g>
 
-  <g filter="url(#reflectionBlur)" opacity="0.12" style="will-change: opacity">
-    <path fill="none" stroke="#fcd5ce" stroke-width="4"
-          d="M0,610 C100,585 200,625 300,590 C400,555 500,635 600,595 C700,555 800,640 900,600 C1000,565 1100,625 1200,595">
-      <animate attributeName="d" dur="8s" repeatCount="indefinite"
-               values="M0,610 C100,585 200,625 300,590 C400,555 500,635 600,595 C700,555 800,640 900,600 C1000,565 1100,625 1200,595;
-                       M0,595 C120,620 220,580 320,608 C420,570 520,610 620,585 C720,570 820,615 920,590 C1020,575 1120,605 1200,600;
-                       M0,610 C100,585 200,625 300,590 C400,555 500,635 600,595 C700,555 800,640 900,600 C1000,565 1100,625 1200,595"/>
-    </path>
-    <path fill="none" stroke="#fcd5ce" stroke-width="3"
-          d="M0,640 C120,610 220,655 350,620 C480,585 580,660 700,625 C820,590 920,650 1050,615">
-      <animate attributeName="d" dur="7s" repeatCount="indefinite"
-               values="M0,640 C120,610 220,655 350,620 C480,585 580,660 700,625 C820,590 920,650 1050,615;
-                       M0,625 C140,645 240,600 370,635 C490,600 600,645 720,612 C840,600 940,635 1050,625;
-                       M0,640 C120,610 220,655 350,620 C480,585 580,660 700,625 C820,590 920,650 1050,615"/>
-    </path>
-    <path fill="none" stroke="#fcd5ce" stroke-width="2"
-          d="M0,670 C150,640 280,685 420,650 C560,615 680,680 820,645 C960,610 1080,670 1200,640">
-      <animate attributeName="d" dur="6s" repeatCount="indefinite"
-               values="M0,670 C150,640 280,685 420,650 C560,615 680,680 820,645 C960,610 1080,670 1200,640;
-                       M0,655 C170,670 300,625 440,660 C570,630 690,660 830,635 C970,620 1090,655 1200,650;
-                       M0,670 C150,640 280,685 420,650 C560,615 680,680 820,645 C960,610 1080,670 1200,640"/>
-    </path>
+  <g opacity="0.12" class="bg-reflection-lines" style="will-change: opacity">
+    <path fill="none" stroke="#fcd5ce" stroke-width="4" d="M0,610 C100,585 200,625 300,590 C400,555 500,635 600,595 C700,555 800,640 900,600 C1000,565 1100,625 1200,595" class="bg-blur-med"/>
+    <path fill="none" stroke="#fcd5ce" stroke-width="3" d="M0,640 C120,610 220,655 350,620 C480,585 580,660 700,625 C820,590 920,650 1050,615" class="bg-blur-med"/>
+    <path fill="none" stroke="#fcd5ce" stroke-width="2" d="M0,670 C150,640 280,685 420,650 C560,615 680,680 820,645 C960,610 1080,670 1200,640" class="bg-blur-med"/>
   </g>
 
-  <path fill="url(#deepViolet)" filter="url(#softDepth)" style="will-change: opacity"
-        d="M0,610 C100,585 200,625 300,590 C400,555 500,635 600,595 C700,555 800,640 900,600 C1000,565 1100,625 1200,595 L1200,850 L0,850 Z">
-    <animate attributeName="d" dur="8s" repeatCount="indefinite"
-             values="M0,610 C100,585 200,625 300,590 C400,555 500,635 600,595 C700,555 800,640 900,600 C1000,565 1100,625 1200,595 L1200,850 L0,850 Z;
-                     M0,595 C120,620 220,580 320,608 C420,570 520,610 620,585 C720,570 820,615 920,590 C1020,575 1120,605 1200,600 L1200,850 L0,850 Z;
-                     M0,610 C100,585 200,625 300,590 C400,555 500,635 600,595 C700,555 800,640 900,600 C1000,565 1100,625 1200,595 L1200,850 L0,850 Z"/>
-  </path>
-  <path fill="url(#deepBlue)" filter="url(#softDepth)" style="will-change: opacity"
-        d="M0,640 C120,610 220,655 350,620 C480,585 580,660 700,625 C820,590 920,650 1050,615 L1200,625 L1200,850 L0,850 Z">
-    <animate attributeName="d" dur="7s" repeatCount="indefinite"
-             values="M0,640 C120,610 220,655 350,620 C480,585 580,660 700,625 C820,590 920,650 1050,615 L1200,625 L1200,850 L0,850 Z;
-                     M0,625 C140,645 240,600 370,635 C490,600 600,645 720,612 C840,600 940,635 1050,625 L1200,620 L1200,850 L0,850 Z;
-                     M0,640 C120,610 220,655 350,620 C480,585 580,660 700,625 C820,590 920,650 1050,615 L1200,625 L1200,850 L0,850 Z"/>
-  </path>
-  <path fill="url(#deepViolet)" filter="url(#softDepth)" style="will-change: opacity"
-        d="M0,670 C150,640 280,685 420,650 C560,615 680,680 820,645 C960,610 1080,670 1200,640 L1200,850 L0,850 Z">
-    <animate attributeName="d" dur="6s" repeatCount="indefinite"
-             values="M0,670 C150,640 280,685 420,650 C560,615 680,680 820,645 C960,610 1080,670 1200,640 L1200,850 L0,850 Z;
-                     M0,655 C170,670 300,625 440,660 C570,630 690,660 830,635 C970,620 1090,655 1200,650 L1200,850 L0,850 Z;
-                     M0,670 C150,640 280,685 420,650 C560,615 680,680 820,645 C960,610 1080,670 1200,640 L1200,850 L0,850 Z"/>
-  </path>
-  <path fill="url(#deepBlue)" filter="url(#softDepth)" style="will-change: opacity"
-        d="M0,710 C180,680 330,730 480,695 C600,665 720,725 880,690 C1000,660 1100,705 1200,680 L1200,850 L0,850 Z">
-    <animate attributeName="d" dur="5.5s" repeatCount="indefinite"
-             values="M0,710 C180,680 330,730 480,695 C600,665 720,725 880,690 C1000,660 1100,705 1200,680 L1200,850 L0,850 Z;
-                     M0,695 C200,715 350,675 500,710 C620,690 740,705 880,680 C1020,670 1120,700 1200,690 L1200,850 L0,850 Z;
-                     M0,710 C180,680 330,730 480,695 C600,665 720,725 880,690 C1000,660 1100,705 1200,680 L1200,850 L0,850 Z"/>
-  </path>
+  <path fill="url(#deepViolet)" class="bg-sof-1" style="will-change: opacity" d="M0,610 C100,585 200,625 300,590 C400,555 500,635 600,595 C700,555 800,640 900,600 C1000,565 1100,625 1200,595 L1200,850 L0,850 Z"/>
+  <path fill="url(#deepBlue)" class="bg-sof-2" style="will-change: opacity" d="M0,640 C120,610 220,655 350,620 C480,585 580,660 700,625 C820,590 920,650 1050,615 L1200,625 L1200,850 L0,850 Z"/>
+  <path fill="url(#deepViolet)" class="bg-sof-3" style="will-change: opacity" d="M0,670 C150,640 280,685 420,650 C560,615 680,680 820,645 C960,610 1080,670 1200,640 L1200,850 L0,850 Z"/>
+  <path fill="url(#deepBlue)" class="bg-sof-4" style="will-change: opacity" d="M0,710 C180,680 330,730 480,695 C600,665 720,725 880,690 C1000,660 1100,705 1200,680 L1200,850 L0,850 Z"/>
 </svg>
+
+<style>
+  .bg-blur-med { filter: blur(5px); }
+  .bg-blur-big { filter: blur(8px); }
+
+  .bg-stars-1::before {
+    content: ''; position: absolute; inset: 0;
+    width: 1px; height: 1px;
+    box-shadow:
+      80px 550px 0.5px #c8d0ff, 160px 490px 0.4px #e0d0ff, 220px 520px 0.6px #c8d0ff,
+      280px 460px 0.3px #fff, 340px 440px 0.5px #e0d0ff, 400px 380px 0.4px #c8d0ff,
+      460px 350px 0.6px #e0d0ff, 520px 310px 0.5px #c8d0ff, 580px 270px 0.3px #fff,
+      640px 240px 0.5px #e0d0ff, 700px 190px 0.4px #c8d0ff, 760px 160px 0.6px #e0d0ff,
+      820px 130px 0.5px #c8d0ff, 880px 100px 0.3px #fff, 940px 70px 0.4px #e0d0ff,
+      1000px 40px 0.5px #c8d0ff, 120px 520px 0.3px #fff, 200px 480px 0.5px #e0d0ff,
+      310px 420px 0.4px #c8d0ff, 380px 400px 0.3px #fff, 440px 370px 0.5px #c8d0ff,
+      500px 330px 0.4px #e0d0ff, 560px 290px 0.3px #fff, 620px 250px 0.5px #c8d0ff,
+      680px 210px 0.4px #e0d0ff, 740px 180px 0.3px #fff, 800px 140px 0.5px #c8d0ff,
+      860px 110px 0.4px #e0d0ff, 920px 80px 0.3px #fff, 980px 50px 0.5px #c8d0ff;
+    animation: bg-twinkle-1 6s ease-in-out infinite alternate;
+    will-change: opacity;
+  }
+
+  .bg-stars-2::before {
+    content: ''; position: absolute; inset: 0;
+    width: 1.5px; height: 1.5px;
+    box-shadow:
+      225px 10px 1px #ffe0e0, 660px 28px 1.5px #f0f8ff, 741px 27px 1.5px #f0f8ff,
+      338px 64px 1.1px #f0f8ff, 154px 8px 1.4px #f0f8ff, 658px 18px 1.3px #f0f8ff,
+      497px 38px 1.1px #e0e0ff, 623px 24px 0.8px #f0f8ff, 559px 64px 1.4px #ffe0e0,
+      894px 9px 1.6px #fff, 388px 56px 1.1px #e0e0ff, 936px 18px 1.3px #ffe0e0,
+      1068px 86px 1.2px #fffacd, 13px 74px 1.3px #fffacd, 804px 90px 1.2px #fffacd,
+      973px 72px 1.2px #fff;
+    animation: bg-twinkle-2 4s ease-in-out infinite alternate;
+    will-change: opacity;
+  }
+
+  .bg-stars-3::before {
+    content: ''; position: absolute; inset: 0;
+    width: 1px; height: 1px;
+    box-shadow:
+      100px 330px 1.1px #fff, 600px 370px 1.3px #e0e0ff, 400px 480px 1px #ffe0e0,
+      1100px 520px 1.2px #fffacd, 200px 560px 0.9px #f0f8ff, 300px 350px 1.2px #fffacd,
+      900px 390px 1.1px #fffacd, 750px 460px 1px #fff, 150px 440px 0.8px #e0e0ff,
+      500px 540px 1.1px #ffe0e0, 1050px 580px 0.9px #fff, 850px 310px 0.9px #f0f8ff,
+      50px 500px 1px #fffacd, 950px 550px 0.8px #e0e0ff, 350px 610px 0.9px #f0f8ff;
+    animation: bg-twinkle-3 5s ease-in-out infinite alternate;
+    will-change: opacity;
+  }
+
+  @keyframes bg-twinkle-1 { 0% { opacity: 0.3; } 100% { opacity: 0.8; } }
+  @keyframes bg-twinkle-2 { 0% { opacity: 0.4; } 100% { opacity: 1; } }
+  @keyframes bg-twinkle-3 { 0% { opacity: 0.3; } 100% { opacity: 0.9; } }
+
+  .bg-shooting-star-1 { animation: bg-shoot-1 4s ease-in infinite; }
+  .bg-shooting-star-2 { animation: bg-shoot-2 5s ease-in infinite 2s; }
+  .bg-shooting-star-3 { animation: bg-shoot-3 6s ease-in infinite 4s; }
+
+  @keyframes bg-shoot-1 {
+    0% { transform: translate(100px, -100px); opacity: 0; }
+    4% { opacity: 1; }
+    12% { transform: translate(1300px, 1100px); opacity: 0; }
+    100% { opacity: 0; }
+  }
+  @keyframes bg-shoot-2 {
+    0% { transform: translate(1100px, -100px); opacity: 0; }
+    4% { opacity: 1; }
+    12% { transform: translate(-300px, 1300px); opacity: 0; }
+    100% { opacity: 0; }
+  }
+  @keyframes bg-shoot-3 {
+    0% { transform: translate(200px, 300px); opacity: 0; }
+    4% { opacity: 0.8; }
+    12% { transform: translate(1000px, 1200px); opacity: 0; }
+    100% { opacity: 0; }
+  }
+
+  .bg-star-pulse { animation: bg-pulse 0.4s ease-in-out infinite alternate; }
+  @keyframes bg-pulse { 0% { opacity: 0.6; } 100% { opacity: 1; } }
+
+  .bg-moon { animation: bg-fade-soft 4s ease-in-out infinite alternate; }
+  @keyframes bg-fade-soft { 0% { opacity: 0.85; } 100% { opacity: 1; } }
+
+  .bg-moon-glow { animation: bg-glow 3s ease-in-out infinite alternate; }
+  @keyframes bg-glow { 0% { opacity: 0.15; } 100% { opacity: 0.35; } }
+
+  .bg-aurora-1 { animation: bg-drift-1 12s ease-in-out infinite alternate; }
+  .bg-aurora-2 { animation: bg-drift-2 16s ease-in-out infinite alternate; }
+  @keyframes bg-drift-1 { 0% { transform: translateX(-60px); } 100% { transform: translateX(60px); } }
+  @keyframes bg-drift-2 { 0% { transform: translateX(80px); } 100% { transform: translateX(-80px); } }
+
+  .bg-aurora-footer { animation: bg-fade-slow 6s ease-in-out infinite alternate; }
+  @keyframes bg-fade-slow { 0% { opacity: 0.08; } 100% { opacity: 0.16; } }
+
+  .bg-aurora-halo { animation: bg-drift-slow 12s ease-in-out infinite alternate; }
+  @keyframes bg-drift-slow { 0% { transform: translateX(-40px); } 100% { transform: translateX(40px); } }
+
+  .bg-aurora-footer-2 { animation: bg-drift-med 8s ease-in-out infinite alternate; }
+  @keyframes bg-drift-med { 0% { transform: translateX(-50px); } 100% { transform: translateX(50px); } }
+
+  .bg-reflection { animation: bg-refl 3s ease-in-out infinite alternate; }
+  @keyframes bg-refl { 0% { opacity: 0.7; } 100% { opacity: 1; } }
+
+  .bg-reflection-lines { animation: bg-refl-wave 8s ease-in-out infinite alternate; }
+  @keyframes bg-refl-wave { 0% { opacity: 0.08; } 100% { opacity: 0.16; } }
+
+  .bg-sof-1 { animation: bg-sof-1 8s ease-in-out infinite alternate; }
+  .bg-sof-2 { animation: bg-sof-2 7s ease-in-out infinite alternate; }
+  .bg-sof-3 { animation: bg-sof-3 6s ease-in-out infinite alternate; }
+  .bg-sof-4 { animation: bg-sof-4 5.5s ease-in-out infinite alternate; }
+  @keyframes bg-sof-1 { 0% { opacity: 0.85; } 100% { opacity: 1; } }
+  @keyframes bg-sof-2 { 0% { opacity: 0.85; } 100% { opacity: 1; } }
+  @keyframes bg-sof-3 { 0% { opacity: 0.85; } 100% { opacity: 1; } }
+  @keyframes bg-sof-4 { 0% { opacity: 0.85; } 100% { opacity: 1; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bg-shooting-star-1, .bg-shooting-star-2, .bg-shooting-star-3,
+    .bg-aurora-1, .bg-aurora-2, .bg-aurora-footer, .bg-aurora-halo, .bg-aurora-footer-2,
+    .bg-moon, .bg-moon-glow, .bg-reflection, .bg-reflection-lines,
+    .bg-stars-1::before, .bg-stars-2::before, .bg-stars-3::before,
+    .bg-sof-1, .bg-sof-2, .bg-sof-3, .bg-sof-4, .bg-star-pulse {
+      animation: none;
+    }
+    .bg-shooting-star-1, .bg-shooting-star-2, .bg-shooting-star-3 { opacity: 0; }
+    .bg-stars-1::before, .bg-stars-2::before, .bg-stars-3::before { opacity: 0.5; }
+    .bg-aurora-1, .bg-aurora-2 { opacity: 0.3; }
+    .bg-aurora-footer { opacity: 0.1; }
+    .bg-aurora-halo { opacity: 0.2; }
+    .bg-aurora-footer-2 { opacity: 0.15; }
+    .bg-sof-1, .bg-sof-2, .bg-sof-3, .bg-sof-4 { opacity: 0.85; }
+  }
+
+  @media (max-width: 768px) {
+    .bg-aurora-1 { animation-duration: 20s; }
+    .bg-aurora-2 { animation-duration: 24s; }
+    .bg-aurora-halo { animation-duration: 18s; }
+    .bg-aurora-footer-2 { animation-duration: 14s; }
+    .bg-blur-med { filter: blur(3px); }
+    .bg-blur-big { filter: blur(5px); }
+  }
+</style>
