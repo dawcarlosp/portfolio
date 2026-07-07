@@ -24,14 +24,26 @@ const { title = 'Carlos Pereira | Full Stack Developer' } = Astro.props;
     <meta name="twitter:card" content="summary_large_image" />
     <title>{title}</title>
   </head>
-  <body class="bg-deep-navy text-text-primary font-sans min-h-screen overflow-x-hidden">
+  <body class="bg-abyss text-text-primary font-sans min-h-screen overflow-x-hidden">
     <slot />
     <script>
       document.addEventListener('visibilitychange', () => {
-        document.querySelectorAll('svg.fixed').forEach(svg => {
-          document.hidden ? svg.pauseAnimations() : svg.unpauseAnimations();
+        document.querySelectorAll('svg.fixed').forEach((el) => {
+          if (el instanceof SVGSVGElement) {
+            if (document.hidden) {
+              el.pauseAnimations();
+            } else {
+              el.unpauseAnimations();
+            }
+          }
         });
+        document.body.classList.toggle('anim-paused', document.hidden);
       });
     </script>
+    <style is:global>
+      .anim-paused svg * {
+        animation-play-state: paused !important;
+      }
+    </style>
   </body>
 </html>

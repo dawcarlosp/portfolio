@@ -13,6 +13,7 @@
   --color-glass: rgba(255, 255, 255, 0.05);
   --color-glass-border: rgba(255, 255, 255, 0.1);
   --color-card-hover: rgba(0, 255, 204, 0.08);
+  --color-abyss: #02060e;
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-heading: 'Space Grotesk', system-ui, sans-serif;
 }
@@ -135,6 +136,12 @@
 
 html {
   scroll-behavior: smooth;
+  background: #02060e;
+  overscroll-behavior-y: none;
+}
+
+body {
+  overscroll-behavior-y: none;
 }
 
 ::selection {
@@ -176,7 +183,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B132B;
+  background: #02060e;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -186,4 +193,4 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 255, 204, 0.5);
-}
+} 
