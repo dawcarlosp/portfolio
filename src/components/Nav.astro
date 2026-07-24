@@ -32,7 +32,7 @@ const links = [
 </nav>
 
 <style>
-  .nav-link.active {
+  #primary-nav a.active {
     color: var(--color-aurora);
   }
 </style>
@@ -41,15 +41,18 @@ const links = [
   const links = document.querySelectorAll('#primary-nav a[href^="#"]');
   const sections = [...document.querySelectorAll('section[id]')];
 
+  function updateActive(id) {
+    links.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+    });
+  }
+
   if (links.length && sections.length) {
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            const id = entry.target.id;
-            links.forEach((link) => {
-              link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-            });
+            updateActive(entry.target.id);
             break;
           }
         }
@@ -60,5 +63,11 @@ const links = [
     for (const section of sections) {
       observer.observe(section);
     }
+
+    const visible = sections.find((s) => {
+      const rect = s.getBoundingClientRect();
+      return rect.top <= 150 && rect.bottom >= 150;
+    });
+    if (visible) updateActive(visible.id);
   }
 </script>
