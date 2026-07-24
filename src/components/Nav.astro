@@ -8,7 +8,7 @@ const links = [
 ];
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 glass-strong">
+<nav id="primary-nav" class="fixed top-0 left-0 right-0 z-50 glass-strong">
   <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
     <a href="#" class="text-aurora font-heading font-bold text-lg tracking-tight">
       CP<span class="text-text-muted">.</span>
@@ -30,3 +30,35 @@ const links = [
     </a>
   </div>
 </nav>
+
+<style>
+  .nav-link.active {
+    color: var(--color-aurora);
+  }
+</style>
+
+<script>
+  const links = document.querySelectorAll('#primary-nav a[href^="#"]');
+  const sections = [...document.querySelectorAll('section[id]')];
+
+  if (links.length && sections.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            links.forEach((link) => {
+              link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+            });
+            break;
+          }
+        }
+      },
+      { rootMargin: '-50% 0px -50% 0px' }
+    );
+
+    for (const section of sections) {
+      observer.observe(section);
+    }
+  }
+</script>

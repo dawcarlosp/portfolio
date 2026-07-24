@@ -138,6 +138,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
   background: #02060e;
   overscroll-behavior-y: none;
 }
