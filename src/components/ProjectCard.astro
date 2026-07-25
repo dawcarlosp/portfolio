@@ -3,7 +3,7 @@ export interface Props {
   title: string;
   description: string;
   tags: { label: string; color: string }[];
-  links: { label: string; url: string }[];
+  links: { label: string; url: string; variant?: 'code' | 'default' }[];
   image?: string;
   imageAlt?: string;
   featured?: boolean;
@@ -20,6 +20,7 @@ const accentMap = {
     shadow: 'rgba(0,255,204,0.12)',
     text: 'text-aurora',
     bg: 'bg-aurora/10',
+    hoverBg: 'hover:bg-aurora/8',
     gradient: 'from-aurora/5 via-transparent to-transparent',
   },
   violet: {
@@ -28,6 +29,7 @@ const accentMap = {
     shadow: 'rgba(155,81,224,0.12)',
     text: 'text-violet',
     bg: 'bg-violet/10',
+    hoverBg: 'hover:bg-violet/8',
     gradient: 'from-violet/5 via-transparent to-transparent',
   },
   blue: {
@@ -36,6 +38,7 @@ const accentMap = {
     shadow: 'rgba(59,130,246,0.12)',
     text: 'text-blue-accent',
     bg: 'bg-blue-accent/10',
+    hoverBg: 'hover:bg-blue-accent/8',
     gradient: 'from-blue-accent/5 via-transparent to-transparent',
   },
 };
@@ -102,9 +105,9 @@ const wrapperClass = featured
             target="_blank"
             rel="noopener noreferrer"
             class={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
-              link.label === 'Código'
+              link.variant === 'code'
                 ? 'glass border border-white/10 text-text-muted hover:bg-white/5 hover:text-text-primary'
-                : `${a.bg} ${a.text} hover:bg-${a.bg}/20`
+                : `${a.bg} ${a.text} ${a.hoverBg}`
             }`}
           >
             {link.label}
