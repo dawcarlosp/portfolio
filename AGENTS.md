@@ -13,17 +13,16 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 ```
 src/
   components/
-    Nav.astro               # Navigation bar (extracted from index)
+    Nav.astro               # Navigation bar
     Hero.astro              # Hero section with avatar + title
-    AuroraBackground.astro  # Fixed background with SVG aurora + shooting stars
-    StarsBackground.astro   # Fixed background stars overlay
+    Background.astro        # Fixed background: sky, moon, stars, aurora, shooting stars, reflections
     SectionHeading.astro    # Reusable heading + subtitle component
     About.astro             # About section cards
+    Enfoque.astro           # Approach / philosophy section (3 pillars)
     Skills.astro            # Stack: Núcleo 🟢 / Competente 🟡 / Exploración 🔵 / Infra 🟣
     Projects.astro          # Projects section (LocuVentas + sandbox)
     ProjectCard.astro       # Reusable project card with image, tags, links
-    GitHubStats.astro       # GitHub stats fetched client-side from API
-    Tools.astro             # Favorite tools section
+    GitHubStats.astro       # GitHub image stats from external service (github-readme-stats)
     Contact.astro           # Contact + footer with local SVG banner
   layouts/
     Layout.astro            # Base HTML layout with SEO
@@ -34,19 +33,18 @@ src/
 public/
   images/
     footer-banner.svg       # Footer SVG with moon, aurora, typing animation
+    astronauta.png          # Hero avatar image
+    bg.svg                 # (unused)
+    astronaut_v8.svg       # (unused)
 ```
 
 ## GitHub Stats
 
-`GitHubStats.astro` fetches data client-side from the GitHub REST API (no external image service dependency):
-- **Languages**: fetches all repos → language bytes → bar chart
-- **General stats**: repos, followers, gists, following
-- **Activity**: last 5 public events
-- All requests use AbortController (8s timeout). Falls back gracefully if API fails.
+`GitHubStats.astro` uses `<img>` tags pointing to an external `github-readme-stats` service for displaying general stats and top languages. Falls back to an empty image if the service is unavailable.
 
 ## Projects
 
-`ProjectCard.astro` accepts `image` and `imageAlt` props. Photos should go in `public/images/`.
+`ProjectCard.astro` accepts `image` and `imageAlt` props. Photos should go in `public/images/`. Links can have `variant: 'code'` for ghost-style buttons.
 
 ## Design Tokens (global.css)
 
