@@ -89,6 +89,15 @@
 .animate-slide-right { animation: slideInRight 0.6s ease-out forwards; }
 .animate-border-glow { animation: border-glow 2s ease-in-out infinite; }
 
+.hover-glow-aurora { transition: box-shadow 0.3s; }
+.hover-glow-aurora:hover { box-shadow: 0 0 30px rgba(0, 255, 204, 0.1); }
+.hover-glow-aurora-md:hover { box-shadow: 0 0 25px rgba(0, 255, 204, 0.15); }
+.hover-glow-aurora-lg:hover { box-shadow: 0 0 30px rgba(0, 255, 204, 0.2); }
+.hover-glow-violet:hover { box-shadow: 0 0 30px rgba(155, 81, 224, 0.1); }
+.hover-glow-violet-lg:hover { box-shadow: 0 0 30px rgba(155, 81, 224, 0.2); }
+.hover-glow-blue:hover { box-shadow: 0 0 30px rgba(59, 130, 246, 0.15); }
+.hover-glow-blue-md:hover { box-shadow: 0 0 30px rgba(59, 130, 246, 0.1); }
+
 .indent { text-indent: 1.5ch; }
 
 .stagger-1 { animation-delay: 0.1s; opacity: 0; }
