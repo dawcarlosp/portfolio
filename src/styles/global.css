@@ -148,7 +148,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
-  background: #080e20;
+  background: #02060e;
   overscroll-behavior-y: none;
 }
 
@@ -195,7 +195,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #080e20;
+  background: #02060e;
 }
 
 ::-webkit-scrollbar-thumb {
