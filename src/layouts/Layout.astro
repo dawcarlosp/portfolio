@@ -43,6 +43,50 @@ const { title = 'Carlos Pereira | Full Stack Developer' } = Astro.props;
         });
         document.body.classList.toggle('anim-paused', document.hidden);
       });
+
+      (function () {
+        const backdrop = document.getElementById('background-backdrop');
+        const svg = document.getElementById('background-svg');
+        if (!backdrop || !svg) return;
+
+        const MARGIN = 1.5; // backdrop = viewport * MARGIN to cover dynamic viewport changes
+
+        function updateBackdrop() {
+          const vw = window.innerWidth;
+          const vh = window.innerHeight;
+          const bw = Math.round(vw * MARGIN);
+          const bh = Math.round(vh * MARGIN);
+          const offsetX = Math.round((bw - vw) / 2);
+          const offsetY = Math.round((bh - vh) / 2);
+
+          backdrop.style.width = `${bw}px`;
+          backdrop.style.height = `${bh}px`;
+          backdrop.style.top = `-${offsetY}px`;
+          backdrop.style.left = `-${offsetX}px`;
+
+          svg.style.width = `${vw}px`;
+          svg.style.height = `${vh}px`;
+          svg.style.top = `${offsetY}px`;
+          svg.style.left = `${offsetX}px`;
+        }
+
+        let ticking = false;
+        function requestUpdate() {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              updateBackdrop();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }
+
+        window.addEventListener('scroll', requestUpdate, { passive: true });
+        window.addEventListener('resize', requestUpdate, { passive: true });
+        window.addEventListener('touchmove', requestUpdate, { passive: true });
+        window.addEventListener('orientationchange', updateBackdrop);
+        updateBackdrop();
+      })();
     </script>
     <style is:global>
       .anim-paused svg * {
