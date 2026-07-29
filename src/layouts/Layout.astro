@@ -52,8 +52,9 @@ const { title = 'Carlos Pereira | Full Stack Developer' } = Astro.props;
         const MARGIN = 1.5; // backdrop = viewport * MARGIN to cover dynamic viewport changes
 
         function updateBackdrop() {
-          const vw = window.innerWidth;
-          const vh = window.innerHeight;
+          const vp = window.visualViewport;
+          const vw = vp ? Math.round(vp.width) : window.innerWidth;
+          const vh = vp ? Math.round(vp.height) : window.innerHeight;
           const bw = Math.round(vw * MARGIN);
           const bh = Math.round(vh * MARGIN);
           const offsetX = Math.round((bw - vw) / 2);
@@ -61,8 +62,8 @@ const { title = 'Carlos Pereira | Full Stack Developer' } = Astro.props;
 
           backdrop.style.width = `${bw}px`;
           backdrop.style.height = `${bh}px`;
-          backdrop.style.top = `-${offsetY}px`;
-          backdrop.style.left = `-${offsetX}px`;
+          backdrop.style.top = vp ? `${Math.round(vp.offsetTop - offsetY)}px` : `-${offsetY}px`;
+          backdrop.style.left = vp ? `${Math.round(vp.offsetLeft - offsetX)}px` : `-${offsetX}px`;
 
           svg.style.width = `${vw}px`;
           svg.style.height = `${vh}px`;
@@ -81,9 +82,12 @@ const { title = 'Carlos Pereira | Full Stack Developer' } = Astro.props;
           }
         }
 
-        window.addEventListener('scroll', requestUpdate, { passive: true });
-        window.addEventListener('resize', requestUpdate, { passive: true });
-        window.addEventListener('touchmove', requestUpdate, { passive: true });
+        if (window.visualViewport) {
+          window.visualViewport.addEventListener('resize', requestUpdate);
+          window.visualViewport.addEventListener('scroll', requestUpdate);
+        } else {
+          window.addEventListener('resize', requestUpdate, { passive: true });
+        }
         window.addEventListener('orientationchange', updateBackdrop);
         updateBackdrop();
       })();
