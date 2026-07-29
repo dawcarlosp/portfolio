@@ -149,10 +149,12 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
   overscroll-behavior-y: none;
+  background-color: #080e20;
 }
 
 body {
   overscroll-behavior-y: none;
+  background-color: #080e20;
 }
 
 ::selection {
