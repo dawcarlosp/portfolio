@@ -177,9 +177,28 @@ body {
   .glass, .glass-strong {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+    /* Evitar promover a capa de composición GPU en móviles (reduce pressure on GPU layers) */
+    will-change: auto !important;
+    transform: none !important;
+    -webkit-transform: none !important;
   }
   .text-gradient {
     animation-duration: 12s !important;
+  }
+
+  /* Workarounds for background SVG compositing issues in mobile browsers */
+  #background-backdrop {
+    will-change: auto !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    /* Allow the page to render without clipping artifacts during momentum scroll */
+    overflow: visible !important;
+    /* keep fixed positioning but reduce compositing hints */
+  }
+  #background-backdrop svg {
+    will-change: auto !important;
+    transform: none !important;
+    -webkit-transform: none !important;
   }
 }
 
