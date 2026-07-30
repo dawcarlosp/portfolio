@@ -51,31 +51,60 @@ const { title = 'Carlos Pereira | Full Stack Developer' } = Astro.props;
 
         const MARGIN = 1.5; // backdrop = viewport * MARGIN to cover dynamic viewport changes
 
-        function updateBackdrop() {
+        // Keep a stable maximum viewport size so we don't resize the SVG on every scroll
+        let maxVW = 0;
+        let maxVH = 0;
+        let bw = 0;
+        let bh = 0;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        function recalcSizes() {
           const vp = window.visualViewport;
           const vw = vp ? Math.round(vp.width) : window.innerWidth;
           const vh = vp ? Math.round(vp.height) : window.innerHeight;
-          const bw = Math.round(vw * MARGIN);
-          const bh = Math.round(vh * MARGIN);
-          const offsetX = Math.round((bw - vw) / 2);
-          const offsetY = Math.round((bh - vh) / 2);
 
+          // only grow the max dimensions (or set initially) — do not shrink on transient viewport changes
+          if (!maxVW || vw > maxVW) maxVW = vw;
+          if (!maxVH || vh > maxVH) maxVH = vh;
+
+          bw = Math.round(maxVW * MARGIN);
+          bh = Math.round(maxVH * MARGIN);
+          offsetX = Math.round((bw - maxVW) / 2);
+          offsetY = Math.round((bh - maxVH) / 2);
+
+          // size backdrop to the (stable) oversized dimensions
           backdrop.style.width = `${bw}px`;
           backdrop.style.height = `${bh}px`;
-          backdrop.style.top = vp ? `${Math.round(vp.offsetTop - offsetY)}px` : `-${offsetY}px`;
-          backdrop.style.left = vp ? `${Math.round(vp.offsetLeft - offsetX)}px` : `-${offsetX}px`;
 
-          svg.style.width = `${vw}px`;
-          svg.style.height = `${vh}px`;
-          svg.style.top = `${offsetY}px`;
-          svg.style.left = `${offsetX}px`;
+          // position backdrop according to the current visualViewport offsets
+          const top = vp ? Math.round(vp.offsetTop - offsetY) : -offsetY;
+          const left = vp ? Math.round(vp.offsetLeft - offsetX) : -offsetX;
+          backdrop.style.top = `${top}px`;
+          backdrop.style.left = `${left}px`;
+
+          // make the SVG fill the oversized backdrop and keep it stable
+          svg.style.width = `${bw}px`;
+          svg.style.height = `${bh}px`;
+          svg.style.top = `0px`;
+          svg.style.left = `0px`;
+        }
+
+        function updatePosition() {
+          const vp = window.visualViewport;
+          if (!vp) return;
+          const top = Math.round(vp.offsetTop - offsetY);
+          const left = Math.round(vp.offsetLeft - offsetX);
+          backdrop.style.top = `${top}px`;
+          backdrop.style.left = `${left}px`;
+          // keep svg size and position stable while scrolling
         }
 
         let ticking = false;
         function requestUpdate() {
           if (!ticking) {
             window.requestAnimationFrame(() => {
-              updateBackdrop();
+              updatePosition();
               ticking = false;
             });
             ticking = true;
@@ -83,13 +112,16 @@ const { title = 'Carlos Pereira | Full Stack Developer' } = Astro.props;
         }
 
         if (window.visualViewport) {
-          window.visualViewport.addEventListener('resize', requestUpdate);
+          // Recalculate sizes on actual resize events (keyboard show/hide, orientation change)
+          window.visualViewport.addEventListener('resize', () => { recalcSizes(); updatePosition(); });
+          // During scroll only update position (no svg resize)
           window.visualViewport.addEventListener('scroll', requestUpdate);
         } else {
-          window.addEventListener('resize', requestUpdate, { passive: true });
+          window.addEventListener('resize', () => { recalcSizes(); updatePosition(); }, { passive: true });
         }
-        window.addEventListener('orientationchange', updateBackdrop);
-        updateBackdrop();
+
+        window.addEventListener('orientationchange', () => { recalcSizes(); updatePosition(); });
+        recalcSizes();
       })();
     </script>
     <style is:global>
