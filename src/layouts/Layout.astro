@@ -120,7 +120,6 @@ const { title = 'Carlos Pereira | Full Stack Developer' } = Astro.props;
           if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) {
             document.body.classList.add('bg-scrolling');
             backdrop.classList.add('bg-scrolling');
-            try { backdrop.style.position = 'absolute'; } catch (e) {}
           }
           if (scrollEndTimer) {
             clearTimeout(scrollEndTimer);
@@ -131,7 +130,6 @@ const { title = 'Carlos Pereira | Full Stack Developer' } = Astro.props;
         function onScrollEnd() {
           document.body.classList.remove('bg-scrolling');
           backdrop.classList.remove('bg-scrolling');
-          try { backdrop.style.position = 'fixed'; } catch (e) {}
           scrollEndTimer = null;
         }
 
