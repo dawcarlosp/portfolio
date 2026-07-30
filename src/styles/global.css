@@ -202,6 +202,22 @@ body {
   }
 }
 
+/* During momentum scroll on mobile, pause heavy SVG animations and reduce filter intensity to avoid resampling artifacts */
+@media (max-width: 768px) {
+  .bg-scrolling svg * {
+    animation-play-state: paused !important;
+    animation: none !important;
+  }
+  #background-backdrop.bg-scrolling .b-small { filter: blur(2px) !important; }
+  #background-backdrop.bg-scrolling .b-med { filter: blur(4px) !important; }
+  #background-backdrop.bg-scrolling .b-big { filter: blur(6px) !important; }
+  #background-backdrop.bg-scrolling .shoot-1,
+  #background-backdrop.bg-scrolling .shoot-2,
+  #background-backdrop.bg-scrolling .shoot-3,
+  #background-backdrop.bg-scrolling .aurora-1,
+  #background-backdrop.bg-scrolling .aurora-2 { animation: none !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

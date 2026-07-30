@@ -111,11 +111,35 @@ const { title = 'Carlos Pereira | Full Stack Developer' } = Astro.props;
           }
         }
 
+        // Scroll start / end detection to pause heavy SVG animations and try absolute positioning during momentum scroll on mobile
+        let scrollEndTimer = null;
+        const SCROLL_END_DELAY = 150; // ms
+
+        function onScrollStart() {
+          // only on small viewports
+          if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) {
+            document.body.classList.add('bg-scrolling');
+            backdrop.classList.add('bg-scrolling');
+            try { backdrop.style.position = 'absolute'; } catch (e) {}
+          }
+          if (scrollEndTimer) {
+            clearTimeout(scrollEndTimer);
+          }
+          scrollEndTimer = setTimeout(onScrollEnd, SCROLL_END_DELAY);
+        }
+
+        function onScrollEnd() {
+          document.body.classList.remove('bg-scrolling');
+          backdrop.classList.remove('bg-scrolling');
+          try { backdrop.style.position = 'fixed'; } catch (e) {}
+          scrollEndTimer = null;
+        }
+
         if (window.visualViewport) {
           // Recalculate sizes on actual resize events (keyboard show/hide, orientation change)
           window.visualViewport.addEventListener('resize', () => { recalcSizes(); updatePosition(); });
           // During scroll only update position (no svg resize)
-          window.visualViewport.addEventListener('scroll', requestUpdate);
+          window.visualViewport.addEventListener('scroll', (ev) => { requestUpdate(); onScrollStart(); });
         } else {
           window.addEventListener('resize', () => { recalcSizes(); updatePosition(); }, { passive: true });
         }
