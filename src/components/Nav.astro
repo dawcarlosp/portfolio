@@ -8,9 +8,9 @@ const links = [
 ];
 ---
 
-<nav id="primary-nav" class="fixed top-0 left-0 right-0 z-50 glass-strong">
-  <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-    <a href="#" class="text-aurora font-heading font-bold text-lg tracking-tight">
+<nav id="primary-nav" class="fixed top-0 left-0 right-0 z-50 glass-strong" aria-label="Navegación principal">
+  <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
+    <a href="#hero" class="text-aurora font-heading font-bold text-lg tracking-tight">
       CP<span class="text-text-muted">.</span>
     </a>
     <div class="hidden sm:flex items-center gap-6">
@@ -22,12 +22,37 @@ const links = [
         ))
       }
     </div>
-    <a
-      href="mailto:dawcarlospereira@gmail.com"
-      class="px-4 py-2 rounded-full text-xs font-medium glass border border-aurora/20 text-aurora hover:bg-aurora/10 transition-all"
-    >
-      Email
-    </a>
+    <div class="flex items-center gap-2">
+      <button
+        id="mobile-nav-toggle"
+        type="button"
+        class="sm:hidden inline-flex flex-col items-center justify-center gap-1.5 rounded-full border border-white/10 bg-white/5 p-2.5 text-text-primary"
+        aria-expanded="false"
+        aria-controls="mobile-nav-panel"
+        aria-label="Abrir menú de navegación"
+      >
+        <span class="block h-0.5 w-5 bg-current"></span>
+        <span class="block h-0.5 w-5 bg-current"></span>
+        <span class="block h-0.5 w-5 bg-current"></span>
+      </button>
+      <a
+        href="mailto:dawcarlospereira@gmail.com"
+        class="px-4 py-2 rounded-full text-xs font-medium glass border border-aurora/20 text-aurora hover:bg-aurora/10 transition-all"
+      >
+        Email
+      </a>
+    </div>
+  </div>
+  <div id="mobile-nav-panel" class="hidden border-t border-white/10 sm:hidden">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex flex-col gap-2">
+      {
+        links.map((link) => (
+          <a href={link.href} class="rounded-xl px-3 py-2 text-sm text-text-muted hover:bg-white/5 hover:text-aurora transition-colors">
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
   </div>
 </nav>
 
@@ -40,12 +65,27 @@ const links = [
 <script>
   const links = document.querySelectorAll('#primary-nav a[href^="#"]');
   const sections = [...document.querySelectorAll('section[id]')];
+  const toggle = document.getElementById('mobile-nav-toggle');
+  const panel = document.getElementById('mobile-nav-panel');
 
-  function updateActive(id) {
+  function updateActive(id: string) {
     links.forEach((link) => {
       link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
     });
   }
+
+  function toggleMenu(force?: boolean) {
+    if (!toggle || !panel) return;
+    const shouldOpen = typeof force === 'boolean' ? force : !panel.classList.contains('hidden');
+    panel.classList.toggle('hidden', !shouldOpen);
+    toggle.setAttribute('aria-expanded', String(shouldOpen));
+    toggle.setAttribute('aria-label', shouldOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+  }
+
+  toggle?.addEventListener('click', () => toggleMenu());
+  panel?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => toggleMenu(false));
+  });
 
   if (links.length && sections.length) {
     const observer = new IntersectionObserver(

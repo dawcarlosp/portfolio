@@ -1,6 +1,8 @@
 ---
 import SectionHeading from './SectionHeading.astro';
 import ProjectCard from './ProjectCard.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <section id="projects" class="relative py-24 px-4">
@@ -24,11 +26,11 @@ import ProjectCard from './ProjectCard.astro';
           { label: 'MySQL', color: 'bg-orange-500/15 text-orange-300' },
           { label: 'JWT', color: 'bg-red-500/15 text-red-300' },
         ]}
-        image={undefined}
-        imageAlt="Captura de LocuVentas"
+        image={`${base}images/locuventas-dashboard.svg`}
+        imageAlt="Captura del panel de LocuVentas"
         links={[
           { label: 'Código', url: 'https://github.com/dawcarlosp/repositorioPereira', variant: 'code' },
-          { label: 'Ver proyecto', url: '#' },
+          { label: 'Ver capturas', url: `${base}images/locuventas-dashboard.svg` },
         ]}
       />
 
@@ -43,10 +45,11 @@ import ProjectCard from './ProjectCard.astro';
           { label: 'Docker', color: 'bg-sky-500/15 text-sky-300' },
           { label: 'OpenCode', color: 'bg-purple-500/15 text-purple-300' },
         ]}
-        image={undefined}
-        imageAlt="Captura de locuventas-sandbox"
+        image={`${base}images/locuventas-sandbox.svg`}
+        imageAlt="Captura del sandbox de locuventas"
         links={[
           { label: 'Código', url: 'https://github.com/dawcarlosp/locuventas-sandbox', variant: 'code' },
+          { label: 'Ver mockup', url: `${base}images/locuventas-sandbox.svg` },
         ]}
       />
     </div>

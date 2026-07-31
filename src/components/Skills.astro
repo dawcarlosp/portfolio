@@ -13,20 +13,21 @@ interface Category {
   items: Skill[];
 }
 
+const base = import.meta.env.BASE_URL;
 const categories: Category[] = [
   {
     id: 'core',
     title: 'Núcleo',
     level: 'core',
     items: [
-      { name: 'Java', icon: 'https://skillicons.dev/icons?i=java' },
-      { name: 'Spring Boot', icon: 'https://skillicons.dev/icons?i=spring' },
-      { name: 'React', icon: 'https://skillicons.dev/icons?i=react' },
-      { name: 'TypeScript', icon: 'https://skillicons.dev/icons?i=ts' },
-      { name: 'Vite', icon: 'https://skillicons.dev/icons?i=vite' },
-      { name: 'MySQL', icon: 'https://skillicons.dev/icons?i=mysql' },
-      { name: 'Tailwind', icon: 'https://skillicons.dev/icons?i=tailwind' },
-      { name: 'HTML5', icon: 'https://skillicons.dev/icons?i=html' },
+      { name: 'Java', icon: `${base}images/skills/backend.svg` },
+      { name: 'Spring Boot', icon: `${base}images/skills/backend.svg` },
+      { name: 'React', icon: `${base}images/skills/frontend.svg` },
+      { name: 'TypeScript', icon: `${base}images/skills/frontend.svg` },
+      { name: 'Vite', icon: `${base}images/skills/frontend.svg` },
+      { name: 'MySQL', icon: `${base}images/skills/data.svg` },
+      { name: 'Tailwind', icon: `${base}images/skills/frontend.svg` },
+      { name: 'HTML5', icon: `${base}images/skills/frontend.svg` },
     ],
   },
   {
@@ -34,12 +35,12 @@ const categories: Category[] = [
     title: 'Competente',
     level: 'competent',
     items: [
-      { name: 'Angular', icon: 'https://skillicons.dev/icons?i=angular' },
-      { name: 'ASP.NET Core', icon: 'https://skillicons.dev/icons?i=dotnet' },
-      { name: 'C#', icon: 'https://skillicons.dev/icons?i=cs' },
-      { name: 'SQL Server', icon: 'https://skillicons.dev/icons?i=mysql' },
-      { name: 'JavaScript', icon: 'https://skillicons.dev/icons?i=js' },
-      { name: 'Bootstrap', icon: 'https://skillicons.dev/icons?i=bootstrap' },
+      { name: 'Angular', icon: `${base}images/skills/frontend.svg` },
+      { name: 'ASP.NET Core', icon: `${base}images/skills/backend.svg` },
+      { name: 'C#', icon: `${base}images/skills/backend.svg` },
+      { name: 'SQL Server', icon: `${base}images/skills/data.svg` },
+      { name: 'JavaScript', icon: `${base}images/skills/frontend.svg` },
+      { name: 'Bootstrap', icon: `${base}images/skills/frontend.svg` },
     ],
   },
   {
@@ -47,12 +48,12 @@ const categories: Category[] = [
     title: 'Exploración',
     level: 'exploration',
     items: [
-      { name: 'Node.js', icon: 'https://skillicons.dev/icons?i=nodejs' },
-      { name: 'Laravel', icon: 'https://skillicons.dev/icons?i=laravel' },
-      { name: 'PHP', icon: 'https://skillicons.dev/icons?i=php' },
-      { name: 'React Native', icon: 'https://skillicons.dev/icons?i=react' },
-      { name: 'MongoDB', icon: 'https://skillicons.dev/icons?i=mongodb' },
-      { name: 'CSS3', icon: 'https://raw.githubusercontent.com/dawcarlosp/dawcarlosp/main/assets-perfil/css_new_logo.png' },
+      { name: 'Node.js', icon: `${base}images/skills/backend.svg` },
+      { name: 'Laravel', icon: `${base}images/skills/backend.svg` },
+      { name: 'PHP', icon: `${base}images/skills/backend.svg` },
+      { name: 'React Native', icon: `${base}images/skills/frontend.svg` },
+      { name: 'MongoDB', icon: `${base}images/skills/data.svg` },
+      { name: 'CSS3', icon: `${base}images/skills/frontend.svg` },
     ],
   },
   {
@@ -60,11 +61,11 @@ const categories: Category[] = [
     title: 'Infraestructura',
     level: 'infra',
     items: [
-      { name: 'Docker', icon: 'https://skillicons.dev/icons?i=docker' },
-      { name: 'GCP', icon: 'https://skillicons.dev/icons?i=gcp' },
-      { name: 'Linux', icon: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg' },
-      { name: 'Git', icon: 'https://skillicons.dev/icons?i=git' },
-      { name: 'Postman', icon: 'https://skillicons.dev/icons?i=postman' },
+      { name: 'Docker', icon: `${base}images/skills/devops.svg` },
+      { name: 'GCP', icon: `${base}images/skills/cloud.svg` },
+      { name: 'Linux', icon: `${base}images/skills/devops.svg` },
+      { name: 'Git', icon: `${base}images/skills/tools.svg` },
+      { name: 'Postman', icon: `${base}images/skills/tools.svg` },
     ],
   },
 ];

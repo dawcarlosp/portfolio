@@ -4,14 +4,25 @@ export interface Props {
   subtitle?: string;
 }
 const { title = 'Carlos Pereira', subtitle = 'Desarrollador Full Stack · Enfoque en sistemas' } = Astro.props;
+const heroImage = `${import.meta.env.BASE_URL}images/astronauta.webp`;
 ---
 
 <section id="hero" class="relative min-h-screen flex items-center justify-center px-4 pt-16">
   <div class="text-center max-w-4xl mx-auto">
     <div class="mb-8 inline-block relative animate-scale-in">
-      <div class="w-36 h-36 md:w-44 md:h-44 rounded-full glass-strong mx-auto animate-float border-2 border-aurora/30 animate-border-glow" style={`background-image: url('${import.meta.env.BASE_URL}/images/astronauta.png'); background-size: cover; background-position: center; overflow: hidden;`}>
+      <div class="w-36 h-36 md:w-44 md:h-44 rounded-full glass-strong mx-auto animate-float border-2 border-aurora/30 animate-border-glow overflow-hidden">
+        <img
+          src={heroImage}
+          alt="Retrato de Carlos Pereira"
+          width="320"
+          height="320"
+          class="w-full h-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
       </div>
-      <div class="absolute -bottom-2 -right-2 w-12 h-12 glass rounded-full flex items-center justify-center">
+      <div class="absolute -bottom-2 -right-2 w-12 h-12 glass rounded-full flex items-center justify-center" aria-hidden="true">
         <span class="text-xl">&#x1F30D;</span>
       </div>
     </div>
