@@ -87,6 +87,20 @@ const links = [
     link.addEventListener('click', () => toggleMenu(false));
   });
 
+  window.addEventListener('resize', () => {
+    if (window.matchMedia('(min-width: 640px)').matches) {
+      toggleMenu(false);
+    }
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!panel || !toggle) return;
+    const target = event.target as Node;
+    if (!panel.contains(target) && !toggle.contains(target)) {
+      toggleMenu(false);
+    }
+  });
+
   if (links.length && sections.length) {
     const observer = new IntersectionObserver(
       (entries) => {
