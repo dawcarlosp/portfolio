@@ -76,7 +76,8 @@ const links = [
 
   function toggleMenu(force?: boolean) {
     if (!toggle || !panel) return;
-    const shouldOpen = typeof force === 'boolean' ? force : !panel.classList.contains('hidden');
+    const isHidden = panel.classList.contains('hidden');
+    const shouldOpen = typeof force === 'boolean' ? force : !isHidden;
     panel.classList.toggle('hidden', !shouldOpen);
     toggle.setAttribute('aria-expanded', String(shouldOpen));
     toggle.setAttribute('aria-label', shouldOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
