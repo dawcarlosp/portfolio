@@ -34,8 +34,6 @@ public/
   images/
     footer-banner.svg       # Footer SVG with moon, aurora, typing animation
     astronauta.png          # Hero avatar image
-    bg.svg                 # (unused)
-    astronaut_v8.svg       # (unused)
 ```
 
 ## GitHub Stats
