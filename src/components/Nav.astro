@@ -77,7 +77,7 @@ const links = [
   function toggleMenu(force?: boolean) {
     if (!toggle || !panel) return;
     const isHidden = panel.classList.contains('hidden');
-    const shouldOpen = typeof force === 'boolean' ? force : !isHidden;
+    const shouldOpen = typeof force === 'boolean' ? force : isHidden;
     panel.classList.toggle('hidden', !shouldOpen);
     toggle.setAttribute('aria-expanded', String(shouldOpen));
     toggle.setAttribute('aria-label', shouldOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
@@ -85,7 +85,10 @@ const links = [
 
   toggle?.addEventListener('click', () => toggleMenu());
   panel?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => toggleMenu(false));
+    link.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu(false);
+    });
   });
 
   window.addEventListener('resize', () => {
